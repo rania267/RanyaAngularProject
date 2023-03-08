@@ -129,6 +129,30 @@ import java.util.stream.Collectors;
         return holidays.contains(date);
     }}
 
+    public List<Delivery> searchDeliveries(String address, Double distance, Double weight, Double size) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Delivery> query = cb.createQuery(Delivery.class);
+        Root<Delivery> deliveryRoot = query.from(Delivery.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+        if (address != null) {
+            predicates.add(cb.like(deliveryRoot.get("address"), "%" + address + "%"));
+        }
+        if (distance != null) {
+            predicates.add(cb.equal(deliveryRoot.get("distance"), distance));
+        }
+        if (weight != null) {
+            predicates.add(cb.equal(deliveryRoot.get("weight"), weight));
+        }
+        if (size != null) {
+            predicates.add(cb.equal(deliveryRoot.get("size"), size));
+        }
+
+        query.select(deliveryRoot).where(predicates.toArray(new Predicate[]{}));
+        return entityManager.createQuery(query).getResultList();
+    }
+
+
 /*
         @Autowired
         private DeliveryService deliveryService;
