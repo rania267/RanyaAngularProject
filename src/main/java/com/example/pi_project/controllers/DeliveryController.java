@@ -13,9 +13,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.time.DayOfWeek;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -127,8 +136,52 @@ import java.util.stream.Collectors;
 
         // Vérifie si la date correspond à un jour férié
         return holidays.contains(date);
-    }}
+    }
+    @PersistenceContext
+    private EntityManager entityManager;
+    @GetMapping("/search")
+    public List<Delivery> searchDeliveries(
+            @RequestParam(value = "minRating", required = false) Integer minRating,
 
+            @RequestParam(value = "scheduledDeliveryTime", required = false) Instant scheduledDeliveryTime,
+            @RequestParam(value = "actualDeliveryTime", required = false) Instant actualDeliveryTime,
+            @RequestParam(value = "signatureConfirmation", required = false) Boolean signatureConfirmation,
+            @RequestParam(value = "insurance", required = false) Boolean insurance) {
+
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Delivery> query = builder.createQuery(Delivery.class);
+        Root<Delivery> root = query.from(Delivery.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        if (minRating != null) {
+            predicates.add(builder.greaterThanOrEqualTo(root.get("rating"), minRating));
+        }
+
+
+        if (scheduledDeliveryTime != null) {
+            predicates.add(builder.equal(root.get("scheduledDeliveryTime"), scheduledDeliveryTime));
+        }
+
+        if (actualDeliveryTime != null) {
+            predicates.add(builder.equal(root.get("actualDeliveryTime"), actualDeliveryTime));
+        }
+
+        if (signatureConfirmation != null) {
+            predicates.add(builder.equal(root.get("signatureConfirmation"), signatureConfirmation));
+        }
+
+        if (insurance != null) {
+            predicates.add(builder.equal(root.get("insurance"), insurance));
+        }
+
+        query.where(predicates.toArray(new Predicate[0]));
+
+        TypedQuery<Delivery> typedQuery = entityManager.createQuery(query);
+        return typedQuery.getResultList();
+    }
+}
+    /*
     public List<Delivery> searchDeliveries(String address, Double distance, Double weight, Double size) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Delivery> query = cb.createQuery(Delivery.class);
@@ -153,7 +206,7 @@ import java.util.stream.Collectors;
     }
 
 
-/*
+
         @Autowired
         private DeliveryService deliveryService;
 

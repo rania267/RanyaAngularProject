@@ -4,15 +4,15 @@ import com.example.pi_project.entities.Contract;
 import com.example.pi_project.entities.ContractStatistics;
 import com.example.pi_project.repositories.ContractRepository;
 import com.example.pi_project.repositories.DeliveryRepository;
+import com.example.pi_project.services.IPiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/con")
 public class ContractController {
     @Autowired
     private ContractRepository contractRepository;
@@ -77,4 +77,37 @@ public class ContractController {
         return ResponseEntity.ok(new ContractStatistics(average, min, max));
     }
 
+    @GetMapping("/contracts/{id}")
+    @ResponseBody
+    public Contract getContractById(@PathVariable("id")int id){
+        return piService.getContractById(id);
+    }
+
+    @GetMapping("/contracts")
+    @ResponseBody
+    public List<Contract> getAllContracts(){
+        return piService.getAllContracts();
+    }
+
+    @PostMapping("/contracts")
+    @ResponseBody
+    public Contract addContract (@RequestBody Contract contract) {
+        return piService.addContract(contract);
+    }
+
+
+    @PutMapping("/contracts")
+    @ResponseBody
+    public Contract updateContract(@RequestBody Contract contract){
+        return piService.updateContract(contract);
+    }
+
+    @Autowired
+    IPiService piService;
+
+    @DeleteMapping("/contracts/{id}")
+    @ResponseBody
+    public void deleteContract(@PathVariable("id")int id){
+        piService.deleteContract(id);
+    }
 }
