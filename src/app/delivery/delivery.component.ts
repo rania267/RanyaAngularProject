@@ -37,6 +37,7 @@ export class DeliveryComponent implements OnInit {
       
       this.getAllDeliveries();
       this.deliveries = this.deliveryService.getDeliveriesList();
+      this.retrieveDeliveries();
   
     }
 
@@ -63,10 +64,53 @@ export class DeliveryComponent implements OnInit {
     //})
   //}
 
-  deleteDelivery(id : number){
-    this.deliveryService.deleteDelivery(id).subscribe(() => this.getAllDeliveries())
-  }
+  //deleteDelivery(id : number){
+   // this.deliveryService.deleteDelivery(id).subscribe(() => this.getAllDeliveries())
+  //}
 
+  //deleteDelivery(delivery: Delivery) {
+   // this.deliveryService.deleteDelivery(delivery.id).subscribe(
+     // (data) => {
+      //  this.delivery = new Delivery();
+       // this.getAllDeliveries();
+      //},
+      //(error) => {
+      //  console.log(error);
+      //}
+    //);
+  //}
+  removeAllDeliveries(): void {
+    this.deliveryService.deleteAll()
+      .subscribe(
+        response => {
+          console.log(response);
+          this.refreshList();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  
+  currentDelivery?: Delivery;
+  currentIndex = -1;
+  title = '';
+deliveriees?: Delivery[]
+  refreshList(): void {
+    this.retrieveDeliveries();
+    this.currentDelivery = undefined;
+    this.currentIndex = -1;
+  }
+  retrieveDeliveries(): void {
+    this.deliveryService.getDeliveriesList()
+      .subscribe(
+        data => {
+          this.deliveriees = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
   deliveryy: Delivery[]
 
   getAllDeliveries(){
@@ -160,5 +204,16 @@ calculateDelivery() {
     },
     (error) => console.error(error)
   );
+}
+
+
+deleteDelivery(id: number) {
+  this.deliveryService.deleteDelivery(id)
+    .subscribe(
+      data => {
+        console.log(data);
+        this.deliveries = this.deliveryService.getDeliveriesList();
+      },
+      error => console.log(error));
 }
 }

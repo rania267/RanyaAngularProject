@@ -57,7 +57,7 @@
                   <td>{{ delivery.insurance }}</td>
                   <td>
                     <button routerLink="/update-delivery/{{ delivery.id }}" routerLinkActive="active" class="btn btn-info">Update</button>
-                    <button (click)="deleteDelivery(delivery.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                    <button style='margin-right:16px' (click)="deleteDelivery(delivery.id)" class="btn btn-danger">Delete</button>
                     <button (click)="deliveriesDetails(delivery.id)" class="btn btn-info" style="margin-left: 10px">View</button>
 
                     

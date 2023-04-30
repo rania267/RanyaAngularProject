@@ -12,6 +12,7 @@ import { DeliveryPerson } from '../model/deliveryPerson';
 export class DeliveryService {
 
   private baseURL = "http://localhost:8081/api/deliveries";
+  private baseUrl = '/api/deleteDelivery';
 
   constructor(private httpClient: HttpClient) { }
   
@@ -38,15 +39,21 @@ export class DeliveryService {
   updateDelivery( delivery: Delivery): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}`, delivery);
   }
-  
+
+  deleteAll(): Observable<any> {
+    return this.httpClient.delete(this.baseUrl);
+  }
   addDelivery(delivery: Delivery): Observable<ApiResponse> {
     return this.httpClient.post<ApiResponse>('http://localhost:8081/api/deliveries/addDelivery', delivery);
   }
 
- 
-  deleteDelivery(id : number){
-    return  this.httpClient.delete(`${this.baseURL}/${id}`)
+  deleteDelivery(id: number): Observable<ApiResponse> {
+    return this.httpClient.delete<ApiResponse>(this.baseUrl + id);
   }
+
+  //deleteDelivery(id: number): Observable<any> {
+  //  return this.httpClient.delete('http://localhost:8081/api/deleteDelivery/' + id, {responseType: 'text'});
+  //}
   private apiUrl = 'http://localhost:8081/deliveries'; 
 
 
