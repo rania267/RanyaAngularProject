@@ -1,0 +1,15 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+<h1>Top Delivery Persons</h1>
+<ul>
+  <li *ngFor="let person of topDeliveryPersons">
+    {{ person.name }} - {{ person.rating }} - {{person.phone}} -{{person.email}}
+  </li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>

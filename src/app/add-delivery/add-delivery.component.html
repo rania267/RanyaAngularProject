@@ -1,0 +1,102 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Create Delivery</h4>
+ 
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" class="form-control" id="id" required [(ngModel)]="delivery.id" name="id">
+    </div>
+
+<div class="form-group">
+  <label for="rating">Rating</label>
+  <input type="number" class="form-control" id="rating" required [(ngModel)]="delivery.rating" name="rating">
+</div>
+
+<div class="form-group">
+  <label for="address">Address</label>
+  <input type="text" class="form-control" id="address" required [(ngModel)]="delivery.address" name="address">
+</div>
+
+<div class="form-group">
+  <label for="totalHT">Total HT</label>
+  <input type="number" class="form-control" id="totalHT" required [(ngModel)]="delivery.totalHT" name="totalHT">
+</div>
+
+<div class="form-group">
+  <label for="totalTTC">Total TTC</label>
+  <input type="number" class="form-control" id="totalTTC" required [(ngModel)]="delivery.totalTTC" name="totalTTC">
+</div>
+
+<div class="form-group">
+  <label for="unitPrice">Unit Price</label>
+  <input type="number" class="form-control" id="unitPrice" required [(ngModel)]="delivery.unitPrice" name="unitPrice">
+</div>
+
+<div class="form-group">
+  <label for="tva">TVA</label>
+  <input type="number" class="form-control" id="tva" required [(ngModel)]="delivery.tva" name="tva">
+</div>
+
+<div class="form-group">
+  <label for="deliveryState">Delivery State</label>
+  <select class="form-control" id="deliveryState" required [(ngModel)]="delivery.deliveryState" name="deliveryState">
+    <option value="Pending">Pending</option>
+    <option value="In Transit">In Transit</option>
+    <option value="Delivered">Delivered</option>
+    <option value="Cancelled">Cancelled</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="scheduledDeliveryTime">Scheduled Delivery Time</label>
+  <input type="datetime-local" class="form-control" id="scheduledDeliveryTime" required [(ngModel)]="delivery.scheduledDeliveryTime" name="scheduledDeliveryTime">
+</div>
+
+<div class="form-group">
+  <label for="actualDeliveryTime">Actual Delivery Time</label>
+  <input type="datetime-local" class="form-control" id="actualDeliveryTime" required [(ngModel)]="delivery.actualDeliveryTime" name="actualDeliveryTime">
+</div>
+
+<div class="form-group">
+  <label for="distance">Distance</label>
+  <input type="number" class="form-control" id="distance" required [(ngModel)]="delivery.distance" name="distance">
+</div>
+
+<div class="form-group">
+  <label for="weight">Weight</label>
+  <input type="number" class="form-control" id="weight" required [(ngModel)]="delivery.weight" name="weight">
+</div>
+
+<div class="form-group">
+  <label for="speed">Speed</label>
+  <input type="text" class="form-control" id="speed" required [(ngModel)]="delivery.speed" name="speed">
+</div>
+
+<div class="form-group">
+  <label for="signatureConfirmation">Signature Confirmation</label>
+  <select class="form-control" id="signatureConfirmation" required [(ngModel)]="delivery.signatureConfirmation" name="signatureConfirmation">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="insurance">Insurance</label>
+  <select class="form-control" id="insurance" required [(ngModel)]="delivery.insurance" name="insurance">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+</div>
+<button class = "btn btn-success" type ="submit">Submit</button>
+</form>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,56 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Contract List</h4>
+        </div>
+        <div class="example-button-container text-right">
+            <div class="example-button-container text-right">
+                <button mat-fab aria-label="Add new delivery" routerLink="/add-contract" routerLinkActive="active">
+                  <mat-icon>add contract</mat-icon>
+                </button>
+    
+              </div>
+
+            <div class="card-body">
+                <div class="example-button-row text-right">
+         
+                  <div class="table-responsive mt-5">
+                      <table class="table">
+                        <thead class=" text-primary">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Option</th>
+        <th>Price</th>
+        <th>Duration</th>
+        <th>Distance</th>
+        <th>Creation Date</th>
+        <th>Expiration Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contract of contracts | async">
+        <td>{{ contract.id }}</td>
+        <td>{{ contract.name }}</td>
+        <td>{{ contract.option }}</td>
+        <td>{{ contract.price }}</td>
+        <td>{{ contract.duration }}</td>
+        <td>{{ contract.distance }}</td>
+        <td>{{ contract.creation_date }}</td>
+        <td>{{ contract.expiration_date }}</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+  <button routerLink="/contract-statistics">View Contract Statistics</button>
+</div>
+

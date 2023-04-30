@@ -1,0 +1,27 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+         
+
+
+
+<div *ngIf="reviews">
+    <div class="card-header">
+    <h2>Customer Reviews</h2>
+    </div>
+    <ul>
+      <li *ngFor="let review of reviews">
+        <h3>{{review.productName}}</h3>
+        <p>Rating: {{review.rating}}/5</p>
+        <p>{{review.comment}}</p>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

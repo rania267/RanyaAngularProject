@@ -1,0 +1,110 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Delivery List</h4>
+        </div>
+        <div class="example-button-container text-right">
+            <button mat-fab aria-label="Add new delivery" routerLink="/add-delivery" routerLinkActive="active">
+              <mat-icon>add delivery</mat-icon>
+            </button>
+
+          </div>
+         
+        <div class="card-body">
+          <div class="example-button-row text-right">
+   
+            <div class="table-responsive mt-5">
+                <table class="table">
+                  <thead class=" text-primary">
+                
+                  <th>Id</th>
+                  <th>Address</th>
+                  <th>Size</th>
+                  <th>TotalHT</th>
+                  <th>TotalTTC</th>
+                  <th>Unit Price</th>
+                  <th>TVA</th>
+                  <th>Delivery State</th>
+                  <th>Scheduled Delivery Time</th>
+                  <th>Actual Delivery Time</th>
+                  <th>Distance</th>
+                  <th>Weight</th>
+                  <th>Speed</th>
+                  <th>Signature Confirmation</th>
+                  <th>Insurance</th>
+                  <th>Actions</th>
+              
+              </thead>
+              <tbody>
+                <tr *ngFor="let delivery of deliveries | async">
+                  <td>{{ delivery.id }}</td>
+                  <td>{{ delivery.address }}</td>
+                  <td>{{ delivery.size }}</td>
+                  <td>{{ delivery.totalHT }}</td>
+                  <td>{{ delivery.totalTTC }}</td>
+                  <td>{{ delivery.unitPrice }}</td>
+                  <td>{{ delivery.tva }}</td>
+                  <td>{{ delivery.deliveryState }}</td>
+                  <td>{{ delivery.scheduledDeliveryTime }}</td>
+                  <td>{{ delivery.actualDeliveryTime }}</td>
+                  <td>{{ delivery.distance }}</td>
+                  <td>{{ delivery.weight }}</td>
+                  <td>{{ delivery.speed }}</td>
+                  <td>{{ delivery.signatureConfirmation }}</td>
+                  <td>{{ delivery.insurance }}</td>
+                  <td>
+                    <button routerLink="/update-delivery/{{ delivery.id }}" routerLinkActive="active" class="btn btn-info">Update</button>
+                    <button (click)="deleteDelivery(delivery.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                    <button (click)="deliveriesDetails(delivery.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+
+                    
+        
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+  
+            <div>
+              <h2>Calculate Delivery Cost</h2>
+              <label for="deliveryId">Delivery ID:</label>
+              <input type="text" id="deliveryId" [(ngModel)]="deliveryId" name="deliveryId">
+              <button (click)="calculateCost()">Calculate</button>
+              <p *ngIf="totalCost !== undefined">Total Cost: {{ totalCost }}</p>
+            </div>
+  
+            <div>
+              <h2>Average Rating: {{ ratingAverage }}</h2>
+            </div>
+  
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/delivery-details/:id" routerLinkActive="active">Delivery Details</a>
+            </li> 
+            
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/review" routerLinkActive="active">See Delivery Review</a>
+              </li> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="calculateDelivery()">Calculer la date de livraison</button>
+    
+<li class="nav-item">
+    <a class="nav-link" routerLink="/survey-result" routerLinkActive="active">See Delivery Survey Result</a>
+  </li> 
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/delivery-distance" routerLinkActive="active">See Delivery Distance</a>
+  </li> 
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/delivery-claim" routerLinkActive="active">See Delivery Claim</a>
+  </li> 
+
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/delivery-person" routerLinkActive="active">See Delivery Person</a>
+  </li> 

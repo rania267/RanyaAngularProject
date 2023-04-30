@@ -1,0 +1,25 @@
+/* Style for the survey results heading */
+.survey-results-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the survey results list */
+  .survey-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style for the survey result */
+  .survey-result {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the survey result question */
+  .survey-result-question {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  

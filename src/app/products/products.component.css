@@ -1,0 +1,13 @@
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  background-color: rgba(205,197,193, 0.3);
+  color: black;
+  border-radius:0.25rem;
+  -webkit-border-radius:0.25rem;
+  -moz-border-radius:0.25rem;
+  -ms-border-radius:0.25rem;
+  -o-border-radius:0.25rem;
+  -webkit-border-radius:0.25rem;
+}

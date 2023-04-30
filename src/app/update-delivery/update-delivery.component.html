@@ -1,0 +1,73 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Update Delivery</h4>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="address">Id</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="delivery.id" name="address">
+      </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" [(ngModel)]="delivery.address" name="address">
+  </div>
+  <div class="form-group">
+    <label for="size">Size</label>
+    <input type="text" class="form-control" id="size" [(ngModel)]="delivery.size" name="size">
+  </div>
+  <div class="form-group">
+    <label for="totalHT">TotalHT</label>
+    <input type="text" class="form-control" id="totalHT" [(ngModel)]="delivery.totalHT" name="totalHT">
+  </div>
+  <div class="form-group">
+    <label for="totalTTC">TotalTTC</label>
+    <input type="text" class="form-control" id="totalTTC" [(ngModel)]="delivery.totalTTC" name="totalTTC">
+  </div>
+  <div class="form-group">
+    <label for="unitPrice">Unit Price</label>
+    <input type="text" class="form-control" id="unitPrice" [(ngModel)]="delivery.unitPrice" name="unitPrice">
+  </div>
+  <div class="form-group">
+    <label for="tva">TVA</label>
+    <input type="text" class="form-control" id="tva" [(ngModel)]="delivery.tva" name="tva">
+  </div>
+  <div class="form-group">
+    <label for="deliveryState">Delivery State</label>
+    <input type="text" class="form-control" id="deliveryState" [(ngModel)]="delivery.deliveryState" name="deliveryState">
+  </div>
+  <div class="form-group">
+    <label for="scheduledDeliveryTime">Scheduled Delivery Time</label>
+    <input type="text" class="form-control" id="scheduledDeliveryTime" [(ngModel)]="delivery.scheduledDeliveryTime" name="scheduledDeliveryTime">
+  </div>
+  <div class="form-group">
+    <label for="actualDeliveryTime">Actual Delivery Time</label>
+    <input type="text" class="form-control" id="actualDeliveryTime" [(ngModel)]="delivery.actualDeliveryTime" name="actualDeliveryTime">
+  </div>
+  <div class="form-group">
+    <label for="distance">Distance</label>
+    <input type="text" class="form-control" id="distance" [(ngModel)]="delivery.distance" name="distance">
+  </div>
+  <div class="form-group">
+    <label for="weight">Weight</label>
+    <input type="text" class="form-control" id="weight" [(ngModel)]="delivery.weight" name="weight">
+  </div>
+  <div class="form-group">
+    <label for="speed">Speed</label>
+    <input type="text" class="form-control" id="speed" [(ngModel)]="delivery.speed" name="speed">
+  </div>
+  <div class="form-group">
+    <label for="signatureConfirmation">Signature Confirmation</label>
+    <input type="checkbox" class="form-control" id="signatureConfirmation" [(ngModel)]="delivery.signatureConfirmation" name="signatureConfirmation">
+  </div>
+
+  <button style='margin-right:16px' class="btn btn-success">Submit</button>
+  <button style='margin-right:16px' (click)="onSubmit()" class="btn btn-success">Back to Deliveries</button>
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

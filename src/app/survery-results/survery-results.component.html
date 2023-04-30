@@ -1,0 +1,25 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Résultats du sondage</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let result of results">
+          {{ result.question }} : {{ result.answer }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
