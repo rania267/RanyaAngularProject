@@ -6,7 +6,7 @@
         <div class="card-header">
           <h4 class="card-title">Create Delivery</h4>
  
-  <form (ngSubmit)="onSubmit()">
+  <form  ngForm>
     <div class="form-group">
       <label for="id">ID</label>
       <input type="text" class="form-control" id="id" required [(ngModel)]="delivery.id" name="id">
@@ -92,7 +92,10 @@
     <option value="false">No</option>
   </select>
 </div>
-<button class = "btn btn-success" type ="submit">Submit</button>
+
+<div class="form-group">
+  <button class="btn btn-block" type="submit" name="submit_reg" (click)="onSubmit()">Add</button>
+</div>
 </form>
 </div>
         </div>

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
+import { DeliveryFrontComponent } from './delivery-front/delivery-front.component';
 import { HomeComponent } from './frontoffice/home/home.component';
-
+import { DeliveryDateComponent } from './delivery-date/delivery-date.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FormsModule } from '@angular/forms/forms';
@@ -19,7 +19,7 @@ import { SurveryResultsComponent } from './survery-results/survery-results.compo
 import { DeliveryDistanceComponent } from './delivery-distance/delivery-distance.component';
 import { DeliveryClaimComponent } from './delivery-claim/delivery-claim.component';
 import { DeliveryPersonComponent } from './delivery-person/delivery-person.component';
-
+import { ContractFrontComponent } from './contract-front/contract-front.component';
 const routes: Routes =[
   {
     path: '',
@@ -51,6 +51,9 @@ const routes: Routes =[
   {path: 'delivery-distance', component: DeliveryDistanceComponent},
   {path: 'delivery-claim', component: DeliveryClaimComponent},
   {path: 'delivery-person', component: DeliveryPersonComponent},
+  {path: 'delivery-date', component: DeliveryDateComponent},
+  {path: 'delivery-front', component: DeliveryFrontComponent},
+  {path: 'contract-front', component: ContractFrontComponent},
   {
     path: '**',
     redirectTo: 'home'

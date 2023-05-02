@@ -6,18 +6,19 @@ import { DeliveryDetails } from '../model/deliveryDetails';
 import { DeliveryClaim } from '../model/deliveryClaim';
 import { ApiResponse } from '../model/api.response';
 import { DeliveryPerson } from '../model/deliveryPerson';
+import { Api } from 'datatables.net';
 @Injectable({
   providedIn: 'root'
 })
 export class DeliveryService {
 
   private baseURL = "http://localhost:8081/api/deliveries";
-  private baseUrl = '/api/deleteDelivery';
+  private baseUrl = 'http://localhost:8081';
 
   constructor(private httpClient: HttpClient) { }
   
-  getDeliveriesList() : Observable<Delivery[]> {
-    return this.httpClient.get<Delivery[]>(this.baseURL);
+  getDeliveriesList() : Observable<ApiResponse> {
+    return this.httpClient.get<ApiResponse>(this.baseURL);
   }
 
  // addDelivery(delivery: Delivery): Observable<Object>{
@@ -43,13 +44,14 @@ export class DeliveryService {
   deleteAll(): Observable<any> {
     return this.httpClient.delete(this.baseUrl);
   }
-  addDelivery(delivery: Delivery): Observable<ApiResponse> {
-    return this.httpClient.post<ApiResponse>('http://localhost:8081/api/deliveries/addDelivery', delivery);
+  addDelivery(delivery: Delivery): Observable<any> {
+    return this.httpClient.post('http://localhost:8081/api/deliveries/addDelivery', delivery);
   }
 
   deleteDelivery(id: number): Observable<ApiResponse> {
-    return this.httpClient.delete<ApiResponse>(this.baseUrl + id);
+    return this.httpClient.delete<ApiResponse>(`${this.baseUrl}/api/deleteDelivery/${id}`);
   }
+ 
 
   //deleteDelivery(id: number): Observable<any> {
   //  return this.httpClient.delete('http://localhost:8081/api/deleteDelivery/' + id, {responseType: 'text'});

@@ -10,6 +10,10 @@ import { DeliveryDetails } from '../model/deliveryDetails';
 import { DeliveryClaim } from '../model/deliveryClaim';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { parseISO, format } from 'date-fns';
+
+import jspdf from 'jspdf';
+
+
 @Component({
   selector: 'app-delivery',
   templateUrl: './delivery.component.html',
@@ -22,22 +26,33 @@ export class DeliveryComponent implements OnInit {
   isUrgent!: boolean;
 
 
-  deliveries: Observable<Delivery[]>;
+  deliveries: any;
   //dtOptions: DataTables.Settings = {};
   //@ViewChild('dtOptions', {static: true}) table;
 
   id!: number;
-  delivery: Delivery = new Delivery();
+  delivery:any
   constructor(private deliveryService: DeliveryService,
     private router: Router,private http: HttpClient) { 
+      setTimeout(function(){
+        $(function(){
+        $('#example').DataTable();
+        });
+        },2000);
+        
    
     }
 
     ngOnInit():void  {
       
-      this.getAllDeliveries();
+  setTimeout(function(){
+  $(function(){
+  $('#example').DataTable();
+  });
+  },2000);
+   
       this.deliveries = this.deliveryService.getDeliveriesList();
-      this.retrieveDeliveries();
+     
   
     }
 
@@ -90,11 +105,11 @@ export class DeliveryComponent implements OnInit {
           console.log(error);
         });
   }
-  
+ 
   currentDelivery?: Delivery;
   currentIndex = -1;
   title = '';
-deliveriees?: Delivery[]
+deliveriees?: any
   refreshList(): void {
     this.retrieveDeliveries();
     this.currentDelivery = undefined;
@@ -111,7 +126,7 @@ deliveriees?: Delivery[]
           console.log(error);
         });
   }
-  deliveryy: Delivery[]
+  deliveryy: any
 
   getAllDeliveries(){
     this.deliveryService.getDeliveriesList().subscribe(res => this.deliveryy = res)
@@ -209,11 +224,35 @@ calculateDelivery() {
 
 deleteDelivery(id: number) {
   this.deliveryService.deleteDelivery(id)
-    .subscribe(
-      data => {
-        console.log(data);
-        this.deliveries = this.deliveryService.getDeliveriesList();
-      },
-      error => console.log(error));
+  .subscribe(
+  data => {
+  console.log(data);
+  this.deliveries = this.deliveryService.getDeliveriesList();
+  },
+  error => console.log(error));
 }
+generatePDF(delivery: Delivery) {
+  const doc = new jspdf();
+
+  // Ajouter du texte avec la méthode doc.text()
+  doc.text(`ID : ${delivery.id}`, 10, 10);
+  doc.text(`Adresse : ${delivery.address}`, 10, 20);
+  doc.text(`Taille : ${delivery.size}`, 10, 30);
+  doc.text(`Total HT : ${delivery.totalHT}`, 10, 40);
+  doc.text(`Total TTC : ${delivery.totalTTC}`, 10, 50);
+  doc.text(`Prix unitaire : ${delivery.unitPrice}`, 10, 60);
+  doc.text(`TVA : ${delivery.tva}`, 10, 70);
+  doc.text(`État de livraison : ${delivery.deliveryState}`, 10, 80);
+  doc.text(`Heure de livraison prévue : ${delivery.scheduledDeliveryTime}`, 10, 90);
+  doc.text(`Heure de livraison réelle : ${delivery.actualDeliveryTime}`, 10, 100);
+  doc.text(`Distance : ${delivery.distance}`, 10, 110);
+  doc.text(`Poids : ${delivery.weight}`, 10, 120);
+  doc.text(`Vitesse : ${delivery.speed}`, 10, 130);
+  doc.text(`Confirmation de signature : ${delivery.signatureConfirmation}`, 10, 140);
+  doc.text(`Assurance : ${delivery.insurance}`, 10, 150);
+
+  // Enregistrer le PDF avec la méthode doc.save()
+  doc.save('livraison.pdf');
+}
+
 }

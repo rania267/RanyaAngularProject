@@ -15,9 +15,10 @@ import { Router } from '@angular/router';
 export class AddDeliveryComponent implements OnInit {
   delivery: Delivery = new Delivery();
   submitted = false;
-  message: any;
-  deliveries: any;
-  deliveryStates: State
+ 
+
+  message:any;
+  deliveries:any;
   constructor(
     private _fb: FormBuilder,
     private deliveryService: DeliveryService,
@@ -26,22 +27,18 @@ export class AddDeliveryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveDelivery(){
-    this.deliveryService.addDelivery(this.delivery).subscribe( data =>{
-      console.log(data);
-      this.goToDeliveryList();
-    },
-    error => console.log(error));
-  }
   
-  goToDeliveryList(){
+
+  onSubmit() {
+    this.submitted = true;
+    this.deliveryService.addDelivery(this.delivery)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.delivery = new Delivery();
     this.router.navigate(['/delivery']);
   }
-  
-  onSubmit(){
-    console.log(this.delivery);
-    this.saveDelivery();
-    this.router.navigate(['/delivery']);
-  }
+  public addDeliveryNow(d:any){
+    let resp=this.deliveryService.addDelivery(this.delivery);
+    resp.subscribe((data)=>this.message=data);
+      }
   
 }

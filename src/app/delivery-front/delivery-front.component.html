@@ -1,0 +1,75 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Delivery List</h4>
+        </div>
+   
+         
+        <div class="card-body">
+          <div class="example-button-row text-right">
+   
+            <div class="table-responsive mt-5">
+                <table class="table">
+                  <thead class=" text-primary">
+                
+                  <th>Id</th>
+                  <th>Address</th>
+                  <th>Size</th>
+                  <th>TotalHT</th>
+                  <th>TotalTTC</th>
+                  <th>Unit Price</th>
+                  <th>TVA</th>
+                  <th>Delivery State</th>
+                  <th>Scheduled Delivery Time</th>
+                  <th>Actual Delivery Time</th>
+                  <th>Distance</th>
+                  <th>Weight</th>
+                  <th>Speed</th>
+                  <th>Signature Confirmation</th>
+                  <th>Insurance</th>
+               
+              
+              </thead>
+              <tbody>
+                <tr *ngFor="let delivery of deliveries | async">
+                  <td>{{ delivery.id }}</td>
+                  <td>{{ delivery.address }}</td>
+                  <td>{{ delivery.size }}</td>
+                  <td>{{ delivery.totalHT }}</td>
+                  <td>{{ delivery.totalTTC }}</td>
+                  <td>{{ delivery.unitPrice }}</td>
+                  <td>{{ delivery.tva }}</td>
+                  <td>{{ delivery.deliveryState }}</td>
+                  <td>{{ delivery.scheduledDeliveryTime }}</td>
+                  <td>{{ delivery.actualDeliveryTime }}</td>
+                  <td>{{ delivery.distance }}</td>
+                  <td>{{ delivery.weight }}</td>
+                  <td>{{ delivery.speed }}</td>
+                  <td>{{ delivery.signatureConfirmation }}</td>
+                  <td>{{ delivery.insurance }}</td>
+                  <td>
+
+
+                   
+                    <button (click)="generatePDF(delivery)">Générer PDF</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+  
+          
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<li class="nav-item">
+    <a class="nav-link" routerLink="/delivery-person" routerLinkActive="active">See Top 2 Delivery person</a>
+</li>

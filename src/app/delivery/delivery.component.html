@@ -60,8 +60,9 @@
                     <button style='margin-right:16px' (click)="deleteDelivery(delivery.id)" class="btn btn-danger">Delete</button>
                     <button (click)="deliveriesDetails(delivery.id)" class="btn btn-info" style="margin-left: 10px">View</button>
 
+                  
+
                     
-        
                   </td>
                 </tr>
               </tbody>
@@ -92,8 +93,9 @@
     </div>
   </div>
 </div>
-
-<button (click)="calculateDelivery()">Calculer la date de livraison</button>
+<li class="nav-item">
+  <a class="nav-link" routerLink="/delivery-date" routerLinkActive="active">See Delivery Date</a>
+</li> 
     
 <li class="nav-item">
     <a class="nav-link" routerLink="/survey-result" routerLinkActive="active">See Delivery Survey Result</a>
@@ -108,3 +110,4 @@
   <li class="nav-item">
     <a class="nav-link" routerLink="/delivery-person" routerLinkActive="active">See Delivery Person</a>
   </li> 
+  

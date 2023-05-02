@@ -7,12 +7,7 @@
           <h4 class="card-title">Contract List</h4>
         </div>
         <div class="example-button-container text-right">
-            <div class="example-button-container text-right">
-                <button mat-fab aria-label="Add new delivery" routerLink="/add-contract" routerLinkActive="active">
-                  <mat-icon>add contract</mat-icon>
-                </button>
-    
-              </div>
+            
 
             <div class="card-body">
                 <div class="example-button-row text-right">
@@ -41,14 +36,7 @@
         <td>{{ contract.distance }}</td>
         <td>{{ contract.creation_date }}</td>
         <td>{{ contract.expiration_date }}</td>
-        <td>
-    
-          <button style='margin-right:16px' (click)="deleteContract(contract.id)" class="btn btn-danger">Delete</button>
-      
-     
-
-
-        </td>
+       
       </tr>
     </tbody>
   </table>

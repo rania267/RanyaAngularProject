@@ -42,6 +42,8 @@ import { DeliveryPersonComponent } from './delivery-person/delivery-person.compo
 import { DeliveryDateComponent } from './delivery-date/delivery-date.component';
 import { FooterComponent } from './frontoffice/components/footer/footer.component';
 import { HomeComponent } from './frontoffice/home/home.component';
+import { DeliveryFrontComponent } from './delivery-front/delivery-front.component';
+import { ContractFrontComponent } from './contract-front/contract-front.component';
 
 @NgModule({
   imports: [
@@ -89,7 +91,9 @@ import { HomeComponent } from './frontoffice/home/home.component';
     DeliveryPersonComponent,
     DeliveryDateComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    DeliveryFrontComponent,
+    ContractFrontComponent
 
   ],
   providers: [],

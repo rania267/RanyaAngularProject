@@ -13,23 +13,18 @@ export class AddContractComponent implements OnInit {
 
 
   newContract: Contract = new Contract();
-  ngOnInit(): void {
+  submitted = false;
+  
+  constructor(private contratService: ContractService,
+  private router: Router) { }
+  
+  ngOnInit() {
   }
-
-
-  constructor(private contractService: ContractService,private router: Router) {}
-
+  
   onSubmit() {
-    // send POST request to save new contract data
-    this.contractService.addContract(this.newContract)
-      .subscribe(() => {
-        console.log('Contract added successfully');
-        // reset form fields
-        this.newContract = new Contract();
-      }, error => {
-        console.error('Error adding contract:', error);
-      });
-      this.router.navigate(['/contract']);
-
-  }
-}
+  this.submitted = true;
+  this.contratService.addContract(this.newContract)
+  .subscribe(data => console.log(data), error => console.log(error));
+  this.newContract = new Contract();
+  this.router.navigate(['/contract']);
+  }}
