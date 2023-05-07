@@ -1,0 +1,11 @@
+<h2>Liste des livraisons</h2>
+<ul>
+  <li *ngFor="let delivery of deliveries">
+    {{ delivery.name }} - {{ delivery.address }} - {{ delivery.date }}
+    <button (click)="onDeliveryButtonClick(delivery.id)">Afficher le coût total</button>
+    <span *ngIf="totalCost && selectedDeliveryId === delivery.id">Coût total : {{ totalCost }}</span>
+    <button (click)="calculateCost(deliveryId)">Calculer le coût total</button>
+
+  </li>
+</ul>
+<button (click)="calculateCost(deliveryId)">Calculer le coût total</button>

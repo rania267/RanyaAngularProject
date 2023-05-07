@@ -4,7 +4,6 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <img src="path/to/image.jpg" alt="Delivery Image" class="delivery-image">
           <h4 class="card-title">Delivery List</h4>
         </div>
         <div class="example-button-container text-right">
@@ -18,7 +17,7 @@
           <div class="example-button-row text-right">
    
             <div class="table-responsive mt-5">
-                <table  mat-table  class="mat-elevation-z8 mt-5">
+                <table class="table">
                   <thead class=" text-primary">
                 
                   <th>Id</th>
@@ -76,12 +75,10 @@
               <p *ngIf="totalCost !== undefined">Total Cost: {{ totalCost }}</p>
             </div>
   
-          
-       
+            
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

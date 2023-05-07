@@ -1,0 +1,44 @@
+<form [formGroup]="offreForm" >
+  <div  class="home-container">
+    <h2> Create Offre</h2>
+    <div class="example-container">
+      <label for="exampleInputdate">Name :</label>
+      <mat-form-field appearance="fill">
+        <mat-label>name  </mat-label>
+        <input  matInput formControlName="name" >
+        <mat-error >test</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <label for="exampleInputdate">description :</label>
+      <mat-form-field appearance="fill">
+        <mat-label>description  </mat-label>
+        <input matInput formControlName="description" >
+        <mat-error >test</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <label for="exampleInputdate">order Price :</label>
+      <mat-form-field appearance="fill">
+        <mat-label>order Price  </mat-label>
+        <input matInput formControlName="orderPrice" >
+        <mat-error >test</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputdatee">creation date</label>
+      <input (ngModelChange)="validateDates()" type="date" class="form-control" id="exampleInputdatee" value="" formControlName="creation_date" >
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputdate">expiration date</label>
+      <input  (ngModelChange)="validateDates()" type="date" class="form-control" id="exampleInputdate" value="" formControlName="expiration_date" >
+    </div>
+
+      <p [hidden]="!disable" style="color: red">Expiration date should not be set after the creation date.</p>
+
+
+
+  </div>
+  <button class="btn btn-primary button" [disabled]="disable" (click)="createEvent()">Create</button>
+</form>

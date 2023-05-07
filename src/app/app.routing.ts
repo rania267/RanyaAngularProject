@@ -22,6 +22,7 @@ import { DeliveryClaimComponent } from './delivery-claim/delivery-claim.componen
 import { DeliveryPersonComponent } from './delivery-person/delivery-person.component';
 import { ContractFrontComponent } from './contract-front/contract-front.component';
 import { UpdateContractComponent } from './update-contract/update-contract.component';
+import { DeliverycostComponent } from './deliverycost/deliverycost.component';
 const routes: Routes =[
   {
     path: '',
@@ -58,6 +59,7 @@ const routes: Routes =[
   {path: 'contract-front', component: ContractFrontComponent},
   {path: 'update-contract/:id', component: UpdateContractComponent},
   {path: 'contract-details/:id', component: ContractDetailsComponent},
+  {path: 'deliverycost', component: DeliverycostComponent},
  
   {
     path: '**',

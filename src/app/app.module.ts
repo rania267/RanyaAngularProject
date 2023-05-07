@@ -3,12 +3,23 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { __decorate } from 'tslib';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { OffreListComponent } from './offre/offre-list/offre-list.component';
+import { AddOffreComponent } from './offre/add-offre/add-offre.component';
+import { UpdateOffreComponent } from './offre/update-offre/update-offre.component';
+import { DeleteOffreComponent } from './offre/delete-offre/delete-offre.component';
+import { ListRequestComponent } from './Request/list-request/list-request.component';
+import { UpdateRequestComponent } from './Request/update-request/update-request.component';
+import { DeleteRequestComponent } from './Request/delete-request/delete-request.component';
+import { AddRequestComponent } from './Request/add-request/add-request.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { CalculerSimillarComponent } from './offre/calculer-simillar/calculer-simillar.component';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -47,6 +58,7 @@ import { ContractFrontComponent } from './contract-front/contract-front.componen
 import { UpdateContractComponent } from './update-contract/update-contract.component';
 import { ContractDetailsComponent } from './contract-details/contract-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DeliverycostComponent } from './deliverycost/deliverycost.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -59,7 +71,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgbModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   declarations: [
     AppComponent,
@@ -98,7 +113,18 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DeliveryFrontComponent,
     ContractFrontComponent,
     UpdateContractComponent,
-    ContractDetailsComponent
+    ContractDetailsComponent,
+    OffreListComponent,
+    AddOffreComponent,
+    UpdateOffreComponent,
+    DeleteOffreComponent,
+    ListRequestComponent,
+    UpdateRequestComponent,
+    DeleteRequestComponent,
+    AddRequestComponent,
+    ConfirmationComponent,
+    CalculerSimillarComponent,
+    DeliverycostComponent,
 
   ],
   providers: [],

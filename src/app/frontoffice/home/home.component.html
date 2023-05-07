@@ -228,6 +228,80 @@
     </div>
 </section>
 
+<section class="department_section layout_padding">
+    <div class="department_container">
+        <div class="container ">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our Offres
+                </h2>
+            </div>
+            <div class="row" >
+                <div class="col-md-4" *ngFor="let item of offers ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="../../../assets/img/s4.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                {{item.name}}
+                            </h5>
+                          <p>
+                            creation date : {{item.creation_date}}
+                          </p>
+                          <p>
+                            expiration date : {{item.expiration_date}}
+                          </p>
+                            <p>
+                              {{item.description}}
+                            </p>
+                          <p>
+                            {{item.discount_details}}
+                          </p>
+                            <div style="display: flex; text-align: center">
+                              <div style="display: flex">
+                                <p style="margin-top: 13px;">{{item.nbLikeOffer}}</p>
+                                <button (click)="likeOffre(item.id)" style="margin-right: 10px ;background-color: transparent ; border: none"><i class="fa fa-thumbs-up"></i></button>
+                              </div>
+                              <div style="display: flex">
+                                <p style="margin-top: 13px;">{{item.nb_dislike_offer}}</p>
+                                <button (click)="dislikeOffre(item.id)" style="right: 10px;background-color: transparent; border: none"><i class="fa fa-thumbs-down"></i></button>
+
+                              </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <a (click)=" viewAll()"  style=" margin-right: 10 px" >
+                    View All
+                </a>
+              <span><p>
+              </p> </span>
+              <a  (click)="bestOff()" style=" margin-left: 10 px">
+                best Off
+              </a>
+              <a  (click)="Matching()" style=" margin-left: 10 px">
+                Matching
+              </a>
+            </div>
+              <div  class="btn-box">
+                <mat-form-field appearance="fill">
+                  <mat-label>requests</mat-label>
+                  <mat-select   [(ngModel)]="requestSelected">
+                    <mat-option *ngFor="let request of requests" [value]="request.id" >
+                      {{request.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+
+        </div>
+    </div>
+</section>
+
 <!-- end department section -->
 
 <!-- about section -->

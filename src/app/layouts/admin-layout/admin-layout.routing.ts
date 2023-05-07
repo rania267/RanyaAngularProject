@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import {OffreListComponent} from '../../offre/offre-list/offre-list.component';
+import {ListRequestComponent} from '../../Request/list-request/list-request.component';
 import { UpdateDeliveryComponent } from '../../update-delivery/update-delivery.component';
 import { UpdateContractComponent } from '../../update-contract/update-contract.component';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -47,7 +49,9 @@ export const AdminLayoutRoutes: Routes = [
  { path: 'delivery-date', component: DeliveryDateComponent },
  { path: 'contract-statistics', component: ContractStatisticsComponent },
 
- 
+ { path: 'notifications',  component: NotificationsComponent },
+ { path: 'offres',  component: OffreListComponent },
+ { path: 'requests',  component: ListRequestComponent }
 ];
 
 

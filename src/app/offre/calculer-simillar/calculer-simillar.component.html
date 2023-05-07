@@ -1,0 +1,21 @@
+<div  class="home-container">
+  <h2> Calculer similarty </h2>
+<mat-form-field appearance="fill">
+  <mat-label>offers</mat-label>
+  <mat-select [(ngModel)]="offreSelected">
+    <mat-option *ngFor="let offre of offers" [value]="offre.description" >
+      {{offre.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>requests</mat-label>
+  <mat-select   [(ngModel)]="requestSelected">
+    <mat-option *ngFor="let request of requests" [value]="request.description" >
+      {{request.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<h2>Score : {{result}}</h2>
+<button (click)="calculer()" style="background-color: #4e9998 !important;" class="btn btn-success">Calculer</button>
+</div>
