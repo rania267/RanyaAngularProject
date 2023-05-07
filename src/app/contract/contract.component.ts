@@ -4,6 +4,7 @@ import { ContractService } from '../services/contract.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ApiResponse } from '../model/api.response';
+
 @Component({
   selector: 'app-contract',
   templateUrl: './contract.component.html',
@@ -12,7 +13,7 @@ import { ApiResponse } from '../model/api.response';
 export class ContractComponent implements OnInit {
 
   
-  contrats: Observable<ApiResponse>;
+  contrats: any;
   //dtOptions: DataTables.Settings = {};
   //@ViewChild('dtOptions', {static: true}) table;
   
@@ -46,6 +47,10 @@ export class ContractComponent implements OnInit {
   error => console.log(error));
   }
   
+  contractsDetails(id: number){
+    this.router.navigate(['contract-details', id]);
+  }
+
   updateContract(id: number){
   this.router.navigate(['update', id]);
   }

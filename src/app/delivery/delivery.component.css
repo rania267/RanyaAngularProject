@@ -1,0 +1,160 @@
+.panel-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px #ddd;
+  }
+  
+  .card {
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .example-button-container {
+    margin-top: 20px;
+  }
+  
+  .example-button-row {
+    margin-bottom: 20px;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .table thead th {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .table tbody td {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3;
+  }
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .card-title {
+    margin: 0 auto;
+  }
+  .calculate-cost {
+    background-color: #f8f8f8;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .calculate-cost h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .calculate-cost label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .calculate-cost input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .calculate-cost button {
+    background-color: pink;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .calculate-cost button:hover {
+    background-color: #ff69b4;
+  }
+  
+  
+  
+  .calculate-cost p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  

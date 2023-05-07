@@ -22,5 +22,32 @@ export class DeliveryPersonComponent implements OnInit {
         this.topDeliveryPersons = data;
       });
   }
-}
 
+  
+
+  deliveryPerson: any = {};
+  imageFile: File;
+
+ 
+
+  onSubmit(form: any) {
+    const formData = new FormData();
+    formData.append('name', this.deliveryPerson.name);
+    formData.append('email', this.deliveryPerson.email);
+    formData.append('phone', this.deliveryPerson.phone);
+    formData.append('averageDeliveryTime', this.deliveryPerson.averageDeliveryTime);
+    formData.append('averageDistance', this.deliveryPerson.averageDistance);
+    formData.append('averageCustomerSatisfaction', this.deliveryPerson.averageCustomerSatisfaction);
+    formData.append('file', this.imageFile);
+
+    this.deliveryService.createDeliveryPerson(formData)
+      .subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      );
+  }
+
+  onFileSelected(event: any) {
+    this.imageFile = event.target.files[0];
+  }
+}

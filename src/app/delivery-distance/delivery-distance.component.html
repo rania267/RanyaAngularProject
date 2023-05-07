@@ -1,15 +1,75 @@
+<div class="panel-header">
+  <h1>Delivery Distance</h1>
+</div>
 
-<div class="panel-header panel-header-sm"></div>
-<div class="main-content">
+<div class="main-content" style="text-align: center;">
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
+      <div class="card-custom">
         <h4 class="card-title">The Delivery distance is :</h4>
 
-        
-<div>{{ distance }}</div>
+        <div class="distance">{{ distance }}</div>
+
+        <div class="image-container">
+          <img src="../../../assets/img/raouen.PNG" alt="Delivery person" style="max-width: 200px;">
+        </div>
+
+        <div class="icon-container">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Delivery Location</span>
+        </div>
 
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .panel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #008080;
+    color: #FFFFFF;
+    font-size: 24px;
+  }
+
+  .card-custom {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    color: #212529;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 20px;
+    color: #008080;
+  }
+
+  .distance {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #008080;
+    font-size: 24px;
+  }
+
+  .icon-container i {
+    margin-right: 10px;
+  }
+</style>

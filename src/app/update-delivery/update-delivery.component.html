@@ -6,10 +6,7 @@
         <div class="card-header">
           <h4 class="card-title">Update Delivery</h4>
 <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="address">Id</label>
-        <input type="text" class="form-control" id="address" [(ngModel)]="delivery.id" name="address">
-      </div>
+   
   <div class="form-group">
     <label for="address">Address</label>
     <input type="text" class="form-control" id="address" [(ngModel)]="delivery.address" name="address">
@@ -36,15 +33,20 @@
   </div>
   <div class="form-group">
     <label for="deliveryState">Delivery State</label>
-    <input type="text" class="form-control" id="deliveryState" [(ngModel)]="delivery.deliveryState" name="deliveryState">
+    <select class="form-control" id="deliveryState" required [(ngModel)]="delivery.deliveryState" name="deliveryState">
+      <option value="received">received</option>
+     
+      <option value="returned">returned</option>
+      <option value="cancelled">cancelled</option>
+    </select>
   </div>
   <div class="form-group">
     <label for="scheduledDeliveryTime">Scheduled Delivery Time</label>
-    <input type="text" class="form-control" id="scheduledDeliveryTime" [(ngModel)]="delivery.scheduledDeliveryTime" name="scheduledDeliveryTime">
+  <input type="datetime-local" class="form-control" id="scheduledDeliveryTime" required [(ngModel)]="delivery.scheduledDeliveryTime" name="scheduledDeliveryTime">
   </div>
   <div class="form-group">
     <label for="actualDeliveryTime">Actual Delivery Time</label>
-    <input type="text" class="form-control" id="actualDeliveryTime" [(ngModel)]="delivery.actualDeliveryTime" name="actualDeliveryTime">
+  <input type="datetime-local" class="form-control" id="actualDeliveryTime" required [(ngModel)]="delivery.actualDeliveryTime" name="actualDeliveryTime">
   </div>
   <div class="form-group">
     <label for="distance">Distance</label>
@@ -59,8 +61,11 @@
     <input type="text" class="form-control" id="speed" [(ngModel)]="delivery.speed" name="speed">
   </div>
   <div class="form-group">
-    <label for="signatureConfirmation">Signature Confirmation</label>
-    <input type="checkbox" class="form-control" id="signatureConfirmation" [(ngModel)]="delivery.signatureConfirmation" name="signatureConfirmation">
+    <label for="signatureConfirmation">signatureConfirmation</label>
+    <select class="form-control" id="signatureConfirmation" required [(ngModel)]="delivery.signatureConfirmation" name="signatureConfirmation">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
   </div>
 
   <button style='margin-right:16px' class="btn btn-success">Submit</button>

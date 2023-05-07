@@ -1,0 +1,59 @@
+
+.table-responsive {
+  overflow: hidden;
+}
+.custom-button {
+    background-color: #008080; /* couleur verte */
+    color: white; /* texte blanc */
+  }
+  .delivery-image {
+    width: 70px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  div p {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .menu {
+    background-color: #F8F9FA;
+    border-bottom: 1px solid #CCCCCC;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #008080;
+    background-color: #F8F9FA;
+  }
+  

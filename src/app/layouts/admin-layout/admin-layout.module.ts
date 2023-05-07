@@ -18,6 +18,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MaterialsModule } from '../../materials/materials.module';
 
 
+
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -37,7 +40,9 @@ import { MaterialsModule } from '../../materials/materials.module';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    ProductsComponent
+    ProductsComponent,
+
+   
   ]
 })
 

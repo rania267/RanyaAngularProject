@@ -25,8 +25,8 @@ export class ContractService {
     return this.http.post<ApiResponse>(`${this.baseUrl}/con/addContract`, contract);
   }
 
-  updateContract(contract: Contract): Observable<Contract> {
-    return this.http.put<Contract>(`${this.baseUrl}/con/contracts`, contract);
+  updateContract(contract: Contract): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/con/contracts`, contract);
   }
 
   deleteContract(id: number): Observable<ApiResponse> {

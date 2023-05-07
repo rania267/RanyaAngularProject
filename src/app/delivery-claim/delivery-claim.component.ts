@@ -9,41 +9,46 @@ import { FormArray } from '@angular/forms';
   styleUrls: ['./delivery-claim.component.css']
 })
 export class DeliveryClaimComponent implements OnInit {
-  formArray: FormArray;
   deliveryClaimForm: FormGroup;
-  isUrgent: boolean = false;
-  claimCreated: boolean = false;
-  claimAmount: number;
 
   constructor(private formBuilder: FormBuilder, private deliveryClaimService: DeliveryClaimService) { }
-
   ngOnInit() {
     this.deliveryClaimForm = this.formBuilder.group({
-      orderId: ['', Validators.required],
       deliveryAddress: ['', Validators.required],
+      lateDelivery: [false],
+      urgentDelivery: [false],
       deliveryItems: this.formBuilder.array([
-        this.formBuilder.group({
-          name: ['', Validators.required],
-          missing: [false],
-          damaged: [false],
-          deliveryLocation: ['', Validators.required],
-          dateRequest: ['', Validators.required],
-          deliveryTime: ['', Validators.required]
-        })
-      ]),
-      late: [false]
+        this.createDeliveryItemFormGroup(),
+        this.createDeliveryItemFormGroup()
+      ])
     });
   }
 
+  createDeliveryItemFormGroup() {
+    return this.formBuilder.group({
+      name: ['', Validators.required],
+      missing: [false],
+      damaged: [false]
+    });
+  }
+
+  get deliveryItems() {
+    return this.deliveryClaimForm.get('deliveryItems') as FormArray;
+  }
+
   onSubmit() {
-    const deliveryDetails = this.deliveryClaimForm.value;
-    this.deliveryClaimService.createDeliveryClaim(deliveryDetails, this.isUrgent)
-      .subscribe((claim: DeliveryClaim) => {
-        this.claimAmount = claim.claimAmount;
-        this.claimCreated = true;
-      }, error => {
-        console.error(error);
+    const deliveryDetails = {
+      orderId: 1,
+      deliveryAddress: this.deliveryClaimForm.get('deliveryAddress').value,
+      deliveryItems: this.deliveryClaimForm.get('deliveryItems').value,
+      late: this.deliveryClaimForm.get('lateDelivery').value
+    };
+    this.deliveryClaimService.createDeliveryClaim(deliveryDetails, this.deliveryClaimForm.get('urgentDelivery').value)
+      .subscribe(claim => {
+        console.log(claim);
       });
   }
 }
+  
+
 

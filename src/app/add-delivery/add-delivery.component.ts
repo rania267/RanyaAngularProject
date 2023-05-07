@@ -35,6 +35,7 @@ export class AddDeliveryComponent implements OnInit {
     .subscribe(data => console.log(data), error => console.log(error));
     this.delivery = new Delivery();
     this.router.navigate(['/delivery']);
+  
   }
   public addDeliveryNow(d:any){
     let resp=this.deliveryService.addDelivery(this.delivery);

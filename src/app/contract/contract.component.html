@@ -7,60 +7,67 @@
           <h4 class="card-title">Contract List</h4>
         </div>
         <div class="example-button-container text-right">
-            <div class="example-button-container text-right">
-                <button mat-fab aria-label="Add new delivery" routerLink="/add-contract" routerLinkActive="active">
-                  <mat-icon>add contract</mat-icon>
-                </button>
-    
-              </div>
+          <div class="example-button-container text-right">
+            <button mat-fab aria-label="Add new user" class="btn"  routerLink="/add-contract" routerLinkActive="active">
+              <mat-icon>add contract</mat-icon>
+            </button>
+          </div>
+        </div>
 
-            <div class="card-body">
-                <div class="example-button-row text-right">
-         
-                  <div class="table-responsive mt-5">
-                      <table class="table">
-                        <thead class=" text-primary">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Option</th>
-        <th>Price</th>
-        <th>Duration</th>
-        <th>Distance</th>
-        <th>Creation Date</th>
-        <th>Expiration Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let contract of contrats | async">
-        <td>{{ contract.id }}</td>
-        <td>{{ contract.name }}</td>
-        <td>{{ contract.option }}</td>
-        <td>{{ contract.price }}</td>
-        <td>{{ contract.duration }}</td>
-        <td>{{ contract.distance }}</td>
-        <td>{{ contract.creation_date }}</td>
-        <td>{{ contract.expiration_date }}</td>
-        <td>
-    
-          <button style='margin-right:16px' (click)="deleteContract(contract.id)" class="btn btn-danger">Delete</button>
-      
-     
+        <div class="card-body">
+          <div class="example-button-row text-right">
+            <div class="table-responsive mt-5">
+              <table class="table">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Option</th>
+                    <th>Price</th>
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Creation Date</th>
+                    <th>Expiration Date</th>
+                    <th>Contract Information</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let contract of contrats | async">
+                    <td>{{ contract.id }}</td>
+                    <td>{{ contract.name }}</td>
+                    <td>{{ contract.option }}</td>
+                    <td>{{ contract.price }}</td>
+                    <td>{{ contract.duration }}</td>
+                    <td>{{ contract.distance }}</td>
+                    <td>{{ contract.creation_date }}</td>
+                    <td>{{ contract.expiration_date }}</td>
+                    <td>{{ contract.contractInformation }}</td>
+                    <td>
+                      <button  mat-icon-button color="danger" aria-label="delete" (click)="deleteContract(contract.id)" class="btn btn-danger">
+                        <mat-icon>delete</mat-icon>
+                      </button>
 
+                      <a mat-icon-button color="warning" aria-label="edit"  routerLink="/update-contract/{{contract.id}}" routerLinkActive="active" class="btn btn-info">
+                        <mat-icon>edit</mat-icon>
+                      </a>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+                      <button (click)="contractsDetails(contract.id)" class="btn btn-primary">
+                        <i class="fa fa-eye"></i> View
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <button routerLink="/contract-statistics"  class="btn btn-danger">View Contract Statistics</button>
 </div>
-    </div>
-  
-  </div>
- 
-  <button routerLink="/contract-statistics">View Contract Statistics</button>
-</div>
+
+
 

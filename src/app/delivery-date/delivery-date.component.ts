@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./delivery-date.component.css']
 })
 export class DeliveryDateComponent implements OnInit {
-
+  productName: string = 'example-product'; // Valeur d'exemple
+  quantity: number = 10; // Valeur d'exemple
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {

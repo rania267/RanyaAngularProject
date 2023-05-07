@@ -6,14 +6,14 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
+
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard', icon: 'design_app', class: '' },
   { path: '/products', title: 'Products', icon: 'shopping_box', class: '' },
   { path: '/commands', title: 'Commands', icon: 'shopping_basket', class: '' },
-  { path: '/recievers', title: 'Recievers', icon: 'health_ambulance', class: '' },
+  { path: '/receivers', title: 'Recievers', icon: 'health_ambulance', class: '' },
   { path: '/users', title: 'Users', icon: 'business_badge', class: '' },
   { path: '/delivery', title: 'Deliveries', icon: 'business_badge', class: '' },
-
   { path: '/contract', title: 'Contracts', icon: 'business_badge', class: '' },
   { path: '/archives', title: 'Archives', icon: 'shopping_box', class: '' },
   { path: '/offers', title: 'Offers', icon: 'objects_diamond', class: '' },

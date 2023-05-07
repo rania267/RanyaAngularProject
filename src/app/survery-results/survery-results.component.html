@@ -1,25 +1,101 @@
-<div class="panel-header panel-header-sm"></div>
+<style>
+  /* styles pour le header */
+  .panel-header {
+    background-color: #4e73df;
+    color: white;
+    padding: 10px;
+  }
+
+  /* styles pour la carte */
+  .card {
+    background-color: #f8f9fc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+  }
+
+  /* styles pour le contenu de la carte */
+  .card-header {
+    background-color: #4e73df;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  /* styles pour le titre de la carte */
+  mat-card-title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  /* styles pour la liste de résultats */
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  /* styles pour les icônes */
+  .icon {
+    color: #4e73df;
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  /* styles pour la figure */
+  figure {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+  }
+
+  img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+  }
+</style>
+
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-
-
-<mat-card>
-    <mat-card-header>
-      <mat-card-title>Résultats du sondage</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <ul>
-        <li *ngFor="let result of results">
-          {{ result.question }} : {{ result.answer }}
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
+          <div class="panel-header panel-header-sm">
+           
+          </div>
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title><i class="fas fa-poll-h icon"></i>Survey Results</mat-card-title>
+            </mat-card-header>
+          </mat-card>
+        </div>
+        <div class="card-content">
+          <figure>
+            <img src="../../../assets/img/rani.PNG" alt="placeholder">
+          </figure>
+          <ul>
+            <li *ngFor="let result of results">
+              <i class="fas fa-check-circle icon"></i>{{ result.question }} : {{ result.answer }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+

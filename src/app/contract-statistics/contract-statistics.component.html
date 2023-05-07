@@ -1,20 +1,23 @@
-<div class="panel-header panel-header-sm"></div>
+<div class="panel-header panel-header-sm">
+  <h5 class="title"><i class="fas fa-chart-bar"></i> Delivery Contract Statistics</h5>
+</div>
+
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-  
-
-<div *ngIf="statistics">
-    <div class="card-header">
-    <h2>Delivery Contract Statistics</h2>
-</div>
-    <p>Average {{ variable }}: {{ statistics.average }}</p>
-    <p>Minimum {{ variable }}: {{ statistics.min }}</p>
-    <p>Maximum {{ variable }}: {{ statistics.max }}</p>
-  </div>
-  
+        <div *ngIf="statistics">
+          <div class="card-header">
+            <h2><i class="fas fa-chart-bar"></i> Delivery Contract Statistics</h2>
+          </div>
+          <div class="card-body">
+            <p><i class="fas fa-tachometer-alt"></i> Average {{ variable }}: {{ statistics.average }}</p>
+            <p><i class="fas fa-arrow-down"></i> Minimum {{ variable }}: {{ statistics.min }}</p>
+            <p><i class="fas fa-arrow-up"></i> Maximum {{ variable }}: {{ statistics.max }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

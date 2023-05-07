@@ -46,7 +46,9 @@ export class DeliveryService {
   }
   addDelivery(delivery: Delivery): Observable<any> {
     return this.httpClient.post('http://localhost:8081/api/deliveries/addDelivery', delivery);
+   
   }
+  
 
   deleteDelivery(id: number): Observable<ApiResponse> {
     return this.httpClient.delete<ApiResponse>(`${this.baseUrl}/api/deleteDelivery/${id}`);
@@ -57,11 +59,18 @@ export class DeliveryService {
   //  return this.httpClient.delete('http://localhost:8081/api/deleteDelivery/' + id, {responseType: 'text'});
   //}
   private apiUrl = 'http://localhost:8081/deliveries'; 
+  getDeliveryCost(id: number): Observable<number> {
+    const url = `${this.apiUrl}/${id}/cost`;
+    return this.httpClient.get<number>(url);
+  }
+  private apiURl = 'http://localhost:8081/deliveries'; 
 
 
   calculateDeliveryCost(id: number): Observable<number> {
-    return this.httpClient.get<number>(`${this.apiUrl}/${id}/cost`);
+    return this.httpClient.get<number>(`${this.apiURl}/${id}/cost`);
   }
+
+
   getComplexRatingAverage(): Observable<number> {
     return this.httpClient.get<number>(`${this.apiUrl}/rating/average/complex`);
   }
@@ -78,5 +87,15 @@ export class DeliveryService {
     return this.httpClient.get<DeliveryPerson[]>(`${this.apiUrl}/deliverypersons/top2ranked`);
   }
 
+  private baseUrll = 'http://localhost:8081/deliveryClaim/deliveryPerson';
+
+
+
+  createDeliveryPerson(formData: FormData): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.httpClient.post(`${this.baseUrll}`, formData, { headers: headers });
+  }
 }
+
 

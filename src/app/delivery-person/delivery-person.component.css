@@ -1,0 +1,41 @@
+.delivery-person {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .delivery-person-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .delivery-person-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .delivery-person-info {
+    flex-grow: 1;
+  }
+  
+  .delivery-person-info h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .delivery-person-info p {
+    margin: 0;
+    font-size: 18px;
+  }
+  .bg-image {
+    background-image: url('C:\Users\Rania\Desktop\Badreddine\ProjetAngularPi\willnessWings-main\src\assets\img\salary.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  

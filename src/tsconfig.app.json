@@ -5,14 +5,12 @@
     "module": "esnext",
     "baseUrl": "",
     "types": [],
-    "target": "es5",
-    "lib": [
-      "es2016",
-      "dom"
-    ],
+    "target":"es2020",
+    "esModuleInterop": true
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ]
 }
+

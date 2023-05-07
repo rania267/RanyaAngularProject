@@ -4,6 +4,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
+          <img src="path/to/image.jpg" alt="Delivery Image" class="delivery-image">
           <h4 class="card-title">Delivery List</h4>
         </div>
         <div class="example-button-container text-right">
@@ -17,7 +18,7 @@
           <div class="example-button-row text-right">
    
             <div class="table-responsive mt-5">
-                <table class="table">
+                <table  mat-table  class="mat-elevation-z8 mt-5">
                   <thead class=" text-primary">
                 
                   <th>Id</th>
@@ -57,12 +58,11 @@
                   <td>{{ delivery.insurance }}</td>
                   <td>
                     <button routerLink="/update-delivery/{{ delivery.id }}" routerLinkActive="active" class="btn btn-info">Update</button>
-                    <button style='margin-right:16px' (click)="deleteDelivery(delivery.id)" class="btn btn-danger">Delete</button>
+                    <button (click)="deleteDelivery(delivery.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
                     <button (click)="deliveriesDetails(delivery.id)" class="btn btn-info" style="margin-left: 10px">View</button>
 
-                  
-
                     
+        
                   </td>
                 </tr>
               </tbody>
@@ -76,38 +76,12 @@
               <p *ngIf="totalCost !== undefined">Total Cost: {{ totalCost }}</p>
             </div>
   
-            <div>
-              <h2>Average Rating: {{ ratingAverage }}</h2>
-            </div>
-  
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/delivery-details/:id" routerLinkActive="active">Delivery Details</a>
-            </li> 
-            
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/review" routerLinkActive="active">See Delivery Review</a>
-              </li> 
+          
+       
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<li class="nav-item">
-  <a class="nav-link" routerLink="/delivery-date" routerLinkActive="active">See Delivery Date</a>
-</li> 
-    
-<li class="nav-item">
-    <a class="nav-link" routerLink="/survey-result" routerLinkActive="active">See Delivery Survey Result</a>
-  </li> 
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/delivery-distance" routerLinkActive="active">See Delivery Distance</a>
-  </li> 
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/delivery-claim" routerLinkActive="active">See Delivery Claim</a>
-  </li> 
 
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/delivery-person" routerLinkActive="active">See Delivery Person</a>
-  </li> 
-  

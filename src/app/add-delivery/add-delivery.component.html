@@ -7,15 +7,7 @@
           <h4 class="card-title">Create Delivery</h4>
  
   <form  ngForm>
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input type="text" class="form-control" id="id" required [(ngModel)]="delivery.id" name="id">
-    </div>
-
-<div class="form-group">
-  <label for="rating">Rating</label>
-  <input type="number" class="form-control" id="rating" required [(ngModel)]="delivery.rating" name="rating">
-</div>
+  
 
 <div class="form-group">
   <label for="address">Address</label>
@@ -45,10 +37,10 @@
 <div class="form-group">
   <label for="deliveryState">Delivery State</label>
   <select class="form-control" id="deliveryState" required [(ngModel)]="delivery.deliveryState" name="deliveryState">
-    <option value="Pending">Pending</option>
-    <option value="In Transit">In Transit</option>
-    <option value="Delivered">Delivered</option>
-    <option value="Cancelled">Cancelled</option>
+    <option value="received">received</option>
+   
+    <option value="returned">returned</option>
+    <option value="cancelled">cancelled</option>
   </select>
 </div>
 
@@ -92,9 +84,14 @@
     <option value="false">No</option>
   </select>
 </div>
+<div class="form-group">
+  <label for="rating">Rating</label>
+  <input type="number" class="form-control" id="rating" required [(ngModel)]="delivery.rating" name="rating">
+</div>
+
 
 <div class="form-group">
-  <button class="btn btn-block" type="submit" name="submit_reg" (click)="onSubmit()">Add</button>
+  <button class="btn btn-primary" type="submit" name="submit_reg" (click)="onSubmit()">Add</button>
 </div>
 </form>
 </div>

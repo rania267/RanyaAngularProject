@@ -1,0 +1,42 @@
+.panel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #F9A825;
+    color: #FFFFFF;
+    font-size: 24px;
+  }
+  
+  .card-custom {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    color: #212529;
+    font-size: 18px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    color: #F9A825;
+  }
+  
+  .distance {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .icon-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: #F9A825;
+    font-size: 24px;
+  }
+  
+  .icon-container i {
+    margin-right: 10px;
+  }
+  

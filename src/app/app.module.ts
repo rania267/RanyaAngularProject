@@ -44,7 +44,9 @@ import { FooterComponent } from './frontoffice/components/footer/footer.componen
 import { HomeComponent } from './frontoffice/home/home.component';
 import { DeliveryFrontComponent } from './delivery-front/delivery-front.component';
 import { ContractFrontComponent } from './contract-front/contract-front.component';
-
+import { UpdateContractComponent } from './update-contract/update-contract.component';
+import { ContractDetailsComponent } from './contract-details/contract-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -56,6 +58,7 @@ import { ContractFrontComponent } from './contract-front/contract-front.componen
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
   ],
   declarations: [
@@ -93,7 +96,9 @@ import { ContractFrontComponent } from './contract-front/contract-front.componen
     FooterComponent,
     HomeComponent,
     DeliveryFrontComponent,
-    ContractFrontComponent
+    ContractFrontComponent,
+    UpdateContractComponent,
+    ContractDetailsComponent
 
   ],
   providers: [],

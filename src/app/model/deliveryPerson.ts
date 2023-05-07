@@ -8,7 +8,7 @@ export class DeliveryPerson {
     averageCustomerSatisfaction: number;
     deliveryExperiences: DeliveryExperience[];
     isRude: boolean;
-  
+    image: string;
     getAverageCustomerSatisfactionRating(): number {
       let averageRating = 0.0;
       let count = 0;

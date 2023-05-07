@@ -4,7 +4,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Delivery Date</h4>
+          <p>Date de livraison: {{ calculateDeliveryDate(productName, quantity) | async }}</p>
+
 
 
   

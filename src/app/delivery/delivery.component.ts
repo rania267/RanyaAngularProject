@@ -4,12 +4,13 @@ import { Delivery } from '../model/delivery';
 import { Router } from '@angular/router';
 import { ApiResponse } from '../model/api.response';
 import { Observable } from 'rxjs';
-import * as $ from 'jquery';
+
 import 'datatables.net';
 import { DeliveryDetails } from '../model/deliveryDetails';
 import { DeliveryClaim } from '../model/deliveryClaim';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { parseISO, format } from 'date-fns';
+import $ from 'jquery';
 
 import jspdf from 'jspdf';
 
@@ -25,7 +26,7 @@ export class DeliveryComponent implements OnInit {
 
   isUrgent!: boolean;
 
-
+  currentPage: number = 1;
   deliveries: any;
   //dtOptions: DataTables.Settings = {};
   //@ViewChild('dtOptions', {static: true}) table;
@@ -44,7 +45,8 @@ export class DeliveryComponent implements OnInit {
     }
 
     ngOnInit():void  {
-      
+  
+
   setTimeout(function(){
   $(function(){
   $('#example').DataTable();
@@ -55,6 +57,7 @@ export class DeliveryComponent implements OnInit {
      
   
     }
+   
 
   deliveriesDetails(id: number){
     this.router.navigate(['delivery-details', id]);
@@ -132,18 +135,19 @@ deliveriees?: any
     this.deliveryService.getDeliveriesList().subscribe(res => this.deliveryy = res)
   }
   
-  deliveryId!: number;
-  totalCost!: number;
-
-  averageRating!: number;
-  ratingAverage!:number;
-
   calculateCost() {
     this.deliveryService.calculateDeliveryCost(this.deliveryId)
       .subscribe(totalCost => {
         this.totalCost = totalCost;
       });
   }
+  deliveryId!: number;
+  totalCost!: number;
+
+  averageRating!: number;
+  ratingAverage!:number;
+
+  
  /*
   orderId!: number;
   deliveryAddress!: string;

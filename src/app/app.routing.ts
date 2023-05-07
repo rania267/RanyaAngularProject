@@ -14,12 +14,14 @@ import { DeliveryDetailsComponent } from './delivery-details/delivery-details.co
 import { ContractComponent } from './contract/contract.component';
 import { AddContractComponent } from './add-contract/add-contract.component';
 import { ContractStatisticsComponent } from './contract-statistics/contract-statistics.component';
+import { ContractDetailsComponent } from './contract-details/contract-details.component';
 import { ReviewComponent } from './review/review.component';
 import { SurveryResultsComponent } from './survery-results/survery-results.component';
 import { DeliveryDistanceComponent } from './delivery-distance/delivery-distance.component';
 import { DeliveryClaimComponent } from './delivery-claim/delivery-claim.component';
 import { DeliveryPersonComponent } from './delivery-person/delivery-person.component';
 import { ContractFrontComponent } from './contract-front/contract-front.component';
+import { UpdateContractComponent } from './update-contract/update-contract.component';
 const routes: Routes =[
   {
     path: '',
@@ -39,7 +41,7 @@ const routes: Routes =[
   },
   {
     path: 'delivery',
-    component: DeliveryComponent,
+   component: DeliveryComponent,
   },  
   {path: 'update-delivery/:id', component: UpdateDeliveryComponent},
   {path: 'delivery-details/:id', component: DeliveryDetailsComponent},
@@ -54,6 +56,9 @@ const routes: Routes =[
   {path: 'delivery-date', component: DeliveryDateComponent},
   {path: 'delivery-front', component: DeliveryFrontComponent},
   {path: 'contract-front', component: ContractFrontComponent},
+  {path: 'update-contract/:id', component: UpdateContractComponent},
+  {path: 'contract-details/:id', component: ContractDetailsComponent},
+ 
   {
     path: '**',
     redirectTo: 'home'
