@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders , HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DeliveryService } from '../services/delivery.service';
 import { parseISO, format } from 'date-fns';
@@ -19,18 +19,40 @@ export class DeliveryFrontComponent implements OnInit {
   ratingAverage!:number;
   currentPage: number = 1;
   deliveryId!: number;
-  delivery:any;
-  deliveries: any;
+  deliveriess:any;
   totalCost!: number;
+//
+
+deliverys = [
+  { 
+    address: '123 Main St',
+    size: 'Large',
+    totalHT: 100,
+    totalTTC: 120,
+    tva: 20,
+    deliveryState: 'Delivered',
+    actualDeliveryTime: new Date('2023-05-06'),
+    distance: 10,
+    speed: 50,
+    signatureConfirmation: true,
+    insurance: true
+  },
+  // Ajoutez d'autres objets de livraison ici
+];
+
+qrCodeData: string;
+generateQRCode(delivery: Delivery) {
+  this.qrCodeData = JSON.stringify(delivery);
+}
   constructor(private deliveryService: DeliveryService,
     private router: Router,private http: HttpClient) { 
+
      
-        
    
     }
 
     ngOnInit():void  {
-      
+
  
       this.getAverageRating();
       this.deliveries = this.deliveryService.getDeliveriesList();
@@ -47,18 +69,19 @@ export class DeliveryFrontComponent implements OnInit {
         }
       );
     }
+    
+    deliveryyy:any;
     getDeliveryCost(id: number) {
       this.deliveryService.getDeliveryCost(id).subscribe(
         cost => {
-          const delivery = this.deliveries.find(d => d.id === id);
-          delivery.cost = cost;
-          delivery.showCost = true;
+          const deliveryyy = this.deliveriess.find(d => d.id === id);
+          deliveryyy.cost = cost;
+          deliveryyy.showCost = true;
         }
       );
     }
    
     
-
 
   
 
@@ -118,7 +141,42 @@ export class DeliveryFrontComponent implements OnInit {
       // Enregistrer le PDF avec la méthode doc.save()
       doc.save('livraison.pdf');
     }
-    
-      
+    deliveries: any;
+    searchTotalHT:any;
+    searchDistance: number;
+  searchWeight: number;
+  searchSize: number;
+  searchSpeed: string;
+  searchRating: number;
+  searchSignatureConfirmation: any;
+  searchAddress:any;
+  searchTotalTTC:any;
+  searchDeliveryState:any;
+  searchUnitPrice:any;
+  searchTVA:any;
+  searchScheduledDeliveryTim:any;
+  delivery:any;
+  searchText: string;
+  searchDeliveries() {
+    const distance = this.delivery.distance;
+    const weight = this.delivery.weight;
+  
+    const params = new HttpParams()
+      .set('distance', distance.toString())
+      .set('weight', weight.toString());
+  
+    this.http.get<Delivery[]>('/api/deliveries', { params })
+      .subscribe(deliveries => {
+        this.deliveries = deliveries;
+      });
+  }
+  
+  searchTerm: string = '';
+    searchScheduledDeliveryTime:any;
+    searchInsurance:any;
+    searchActualDeliveryTime:any;
+    deliveriesss: Delivery[] = [];
+displayedDeliveries: Delivery[] = [];
+
  }
 

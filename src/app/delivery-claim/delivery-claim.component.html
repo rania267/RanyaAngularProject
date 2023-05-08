@@ -1,37 +1,20 @@
-<form [formGroup]="deliveryClaimForm" (ngSubmit)="onSubmit()">
-  <label>
-    Delivery Address:
-    <input type="text" formControlName="deliveryAddress">
-  </label>
-
-  <label>
-    Late Delivery?
-    <input type="checkbox" formControlName="lateDelivery">
-  </label>
-
-  <label>
-    Urgent Delivery?
-    <input type="checkbox" formControlName="urgentDelivery">
-  </label>
-
-  <div formArrayName="deliveryItems">
-    <div *ngFor="let item of deliveryItems.controls; let i=index" [formGroupName]="i">
-      <label>
-        Item Name:
-        <input type="text" formControlName="name">
-      </label>
-
-      <label>
-        Missing?
-        <input type="checkbox" formControlName="missing">
-      </label>
-
-      <label>
-        Damaged?
-        <input type="checkbox" formControlName="damaged">
-      </label>
+<h2>Calculate Delivery Claim</h2>
+    <div>
+      <label>Delivery:</label>
+      <input type="text" [(ngModel)]="deliveryAddress" name="deliveryAddress">
     </div>
-  </div>
-
-  <button type="submit">Submit</button>
-</form>
+    <div>
+      <label>Items:</label>
+      <textarea [(ngModel)]="deliveryItems" name="deliveryItems"></textarea>
+    </div>
+    <div>
+      <label>Late:</label>
+      <input type="checkbox" [(ngModel)]="late" name="late">
+    </div>
+    <div>
+      <button (click)="calculateClaim()">Calculate Claim</button>
+    </div>
+    <div *ngIf="claimAmount !== undefined">
+      <p>Claim Reason: {{ claimReason }}</p>
+      <p>Claim Amount: {{ claimAmount }}</p>
+    </div>

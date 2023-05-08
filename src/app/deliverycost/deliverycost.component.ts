@@ -16,18 +16,18 @@ export class DeliverycostComponent implements OnInit {
     totalCost!: number;
     deliveries:any;
   ngOnInit() {
-    window.addEventListener('deliveryClick', (event: CustomEvent) => {
-      const deliveryId = event.detail.deliveryId;
-      this.calculateCost(deliveryId);
-    });
+    this.deliveryService.calculateDeliveryCost(this.deliveryId)
+   
   }
   
-  calculateCost(deliveryId: number) {
-    this.deliveryService.calculateDeliveryCost(deliveryId)
+
+  calculateCost() {
+    this.deliveryService.calculateDeliveryCost(this.deliveryId)
       .subscribe(totalCost => {
         this.totalCost = totalCost;
       });
   }
+
   onDeliveryButtonClick(deliveryId: number) {
     const event = new CustomEvent('deliveryClick', {
       detail: { deliveryId }

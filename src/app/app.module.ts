@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { __decorate } from 'tslib';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -59,8 +61,11 @@ import { UpdateContractComponent } from './update-contract/update-contract.compo
 import { ContractDetailsComponent } from './contract-details/contract-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeliverycostComponent } from './deliverycost/deliverycost.component';
+import { ReviwListComponent } from './reviw-list/reviw-list.component';
+
 @NgModule({
   imports: [
+   
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -74,7 +79,8 @@ import { DeliverycostComponent } from './deliverycost/deliverycost.component';
     ToastrModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     AppComponent,
@@ -125,6 +131,7 @@ import { DeliverycostComponent } from './deliverycost/deliverycost.component';
     ConfirmationComponent,
     CalculerSimillarComponent,
     DeliverycostComponent,
+    ReviwListComponent
 
   ],
   providers: [],

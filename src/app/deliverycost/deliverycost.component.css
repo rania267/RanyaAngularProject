@@ -1,0 +1,10 @@
+.bg-image {
+    background-image: url('https://img.freepik.com/free-photo/delivery-concept-portrait-happy-african-american-delivery-man-red-cloth-holding-box-package-isolated-grey-studio-background-copy-space_1258-102368.jpg?w=1380&t=st=1683492303~exp=1683492903~hmac=a190bfaa27241e389870918ca9efb6421e4a95463a3ccbf30e0b51613f383c11');
+    background-size: cover;
+  }
+  .container {
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    display: flex;
+    align-items: center;
+  }
+  

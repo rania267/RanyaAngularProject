@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReviwListComponent } from './reviw-list/reviw-list.component';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
@@ -60,6 +61,7 @@ const routes: Routes =[
   {path: 'update-contract/:id', component: UpdateContractComponent},
   {path: 'contract-details/:id', component: ContractDetailsComponent},
   {path: 'deliverycost', component: DeliverycostComponent},
+  {path: 'reviewlist', component: ReviwListComponent},
  
   {
     path: '**',

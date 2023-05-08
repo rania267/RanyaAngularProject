@@ -3,52 +3,45 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeliveryClaimService } from '../services/delivery-claim.service';
 import { DeliveryClaim } from '../model/deliveryClaim';
 import { FormArray } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-delivery-claim',
   templateUrl: './delivery-claim.component.html',
   styleUrls: ['./delivery-claim.component.css']
 })
 export class DeliveryClaimComponent implements OnInit {
-  deliveryClaimForm: FormGroup;
+  
 
-  constructor(private formBuilder: FormBuilder, private deliveryClaimService: DeliveryClaimService) { }
-  ngOnInit() {
-    this.deliveryClaimForm = this.formBuilder.group({
-      deliveryAddress: ['', Validators.required],
-      lateDelivery: [false],
-      urgentDelivery: [false],
-      deliveryItems: this.formBuilder.array([
-        this.createDeliveryItemFormGroup(),
-        this.createDeliveryItemFormGroup()
-      ])
-    });
+  deliveryAddress: string;
+  deliveryItems: string;
+  late: boolean;
+  claimReason: string;
+  claimAmount: number;
+
+  constructor(private http: HttpClient) { }
+  ngOnInit(): void {
+    
   }
 
-  createDeliveryItemFormGroup() {
-    return this.formBuilder.group({
-      name: ['', Validators.required],
-      missing: [false],
-      damaged: [false]
-    });
-  }
-
-  get deliveryItems() {
-    return this.deliveryClaimForm.get('deliveryItems') as FormArray;
-  }
-
-  onSubmit() {
+  calculateClaim() {
     const deliveryDetails = {
-      orderId: 1,
-      deliveryAddress: this.deliveryClaimForm.get('deliveryAddress').value,
-      deliveryItems: this.deliveryClaimForm.get('deliveryItems').value,
-      late: this.deliveryClaimForm.get('lateDelivery').value
+      deliveryAddress: this.deliveryAddress,
+      deliveryItems: JSON.parse(this.deliveryItems),
+      late: this.late
     };
-    this.deliveryClaimService.createDeliveryClaim(deliveryDetails, this.deliveryClaimForm.get('urgentDelivery').value)
-      .subscribe(claim => {
-        console.log(claim);
-      });
+    this.http.post<any>('/deliveryClaim/claim?isUrgent=false', deliveryDetails).subscribe(
+      (response) => {
+        this.claimReason = response.claimReason;
+        this.claimAmount = response.claimAmount;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }
-  
+
+
+
 
 

@@ -8,9 +8,9 @@
           <h4 class="card-title" style="font-size: 24px; color: #008080;">Delivery List</h4>
         </div>
         
-   
-         
+      
         <div class="card-body">
+      
           <div class="example-button-row text-right">
    
             <div class="table-responsive mt-5">
@@ -65,16 +65,21 @@
                     
                     </button>
                   </td>
-                  
-                  
+               
                 </tr>
-            
-              
                 
               </tbody>
             </table>
   
-          
+            <ng-container *ngFor="let delivery of deliveries | async">
+              <tr>
+                <!-- Other table columns... -->
+                <td>
+                  <ngx-qrcode2 [qrc-value]="delivery.id"></ngx-qrcode2>
+                </td>
+              </tr>
+            </ng-container>
+            
     
           </div>
         </div>
@@ -93,6 +98,6 @@
     <li><a routerLink="/survey-result" routerLinkActive="active">Delivery Survey Result</a></li>
     <li><a routerLink="/delivery-distance" routerLinkActive="active">Delivery Distance</a></li>
     <li><a routerLink="/delivery-claim" routerLinkActive="active">Delivery Claim</a></li>
-    <li><a routerLink="/delivery-person" routerLinkActive="active">Delivery Person</a></li>
+    <li><a routerLink="/reviewlist" routerLinkActive="active">Delivery Review</a></li>
   </ul>
 </div>
