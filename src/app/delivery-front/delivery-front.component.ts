@@ -4,9 +4,12 @@ import { Router } from '@angular/router';
 import { DeliveryService } from '../services/delivery.service';
 import { parseISO, format } from 'date-fns';
 import  jspdf from 'jspdf';
+import { Map } from 'typescript';
+import { Observable } from 'rxjs';
 
 import 'jspdf-autotable';
 
+import { map } from 'rxjs/operators';
 
 import { Delivery } from '../model/delivery';
 @Component({
@@ -80,8 +83,21 @@ generateQRCode(delivery: Delivery) {
         }
       );
     }
-   
-    
+    filterText: string = '';
+    deliveri: Observable<Delivery[]>;
+    filterDeliveries() {
+      if (this.filterText) {
+        return this.deliveri.pipe(
+          map(deliveri => deliveri.filter(delivery => {
+            return delivery.address.toLowerCase().includes(this.filterText.toLowerCase()) ||
+              delivery.size.toString().toLowerCase().includes(this.filterText.toLowerCase()) ||
+              delivery.deliveryState.toLowerCase().includes(this.filterText.toLowerCase());
+          }))
+        );
+      } else {
+        return this.deliveries;
+      }
+    }
 
   
 

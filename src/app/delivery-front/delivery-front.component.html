@@ -1,11 +1,19 @@
-<div class="panel-header panel-header-sm"></div>
+<div class="panel-header panel-header-sm">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="filter">Filter:</label>
+      <input type="text" class="form-control" id="filter" placeholder="Enter filter text" [(ngModel)]="filterText">
+    </div>
+  </form>
+</div>
+
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header" style="text-align: center;">
           <img src="../../../assets/img/RA.PNG" alt="Delivery Image" class="delivery-image">
-          <h4 class="card-title" style="font-size: 24px; color: #008080;">Delivery List</h4>
+          <h4 class="card-title" style="font-size: 24px; color: #008080;">Our Delivery List</h4>
         </div>
         
       
@@ -36,7 +44,7 @@
               
               </thead>
               <tbody>
-                <tr *ngFor="let delivery of deliveries | async">
+                <tr *ngFor="let delivery of filterDeliveries() | async">
                   
                   <td>{{ delivery.address }}</td>
                   <td>{{ delivery.size }}</td>

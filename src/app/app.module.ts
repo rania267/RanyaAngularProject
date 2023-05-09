@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -65,7 +65,7 @@ import { ReviwListComponent } from './reviw-list/reviw-list.component';
 
 @NgModule({
   imports: [
-   
+    NgxQRCodeModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -80,7 +80,8 @@ import { ReviwListComponent } from './reviw-list/reviw-list.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxQRCodeModule
   ],
   declarations: [
     AppComponent,

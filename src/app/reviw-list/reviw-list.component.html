@@ -1,25 +1,29 @@
-<div class="container mt-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="text-center">Liste des avis clients</h3>
-      </div>
+<body class="bg-image">
+  <div class="container">
+    <div class="card text-center mx-auto mt-5" style="margin-left: 50%;">
       <div class="card-body">
-        <ul class="list-unstyled">
-          <li *ngFor="let review of reviews">
-            <div class="card my-3">
-              <div class="card-header">
-                <h4>{{ review.productName }}</h4>
-              </div>
-              <div class="card-body">
-                <p>{{ review.comment }}</p>
-                <p>Note : {{ review.rating }}/5</p>
+        <h2 class="card-title mb-4" >Best Customer Review</h2>
+      </div> 
+      <ul class="list-unstyled">
+        <li *ngFor="let review of reviews; let i=index">
+          <div class="card my-3">
+            <div class="card-header">
+              <h4>{{ review.productName }}</h4>
+              <div class="delivery-person-image">
+                <img class="img-fluid" *ngIf="i === 0" src="../../../assets/img/g.PNG" alt="">
+                <img class="img-fluid" *ngIf="i === 1" src="../../../assets/img/ma.PNG" alt="">
+                <!-- Ajouter autant d'images que nécessaire pour chaque produit -->
               </div>
             </div>
-          </li>
-        </ul>
-      </div>
+            <div class="card-body">
+              <p>{{ review.comment }}</p>
+              <p>Note : {{ review.rating }}/5</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-  
-  
-  
+</body>
+
+

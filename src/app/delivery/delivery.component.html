@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Delivery List</h4>
+          <h4 class="card-title">Our Delivery List</h4>
         </div>
         <div class="example-button-container text-right">
             <button mat-fab aria-label="Add new delivery" routerLink="/add-delivery" routerLinkActive="active">
@@ -16,7 +16,7 @@
         <div class="card-body">
           <div class="example-button-row text-right">
    
-            <div class="table-responsive mt-5">
+            <div class="table-responsive mt-5" style="overflow: hidden;">
                 <table class="table">
                   <thead class=" text-primary">
                 
@@ -24,12 +24,12 @@
                   <th>Address</th>
                   <th>Size</th>
                   <th>TotalHT</th>
-                  <th>TotalTTC</th>
-                  <th>Unit Price</th>
-                  <th>TVA</th>
+             
+     
+          
                   <th>Delivery State</th>
-                  <th>Scheduled Delivery Time</th>
-                  <th>Actual Delivery Time</th>
+         
+            
                   <th>Distance</th>
                   <th>Weight</th>
                   <th>Speed</th>
@@ -44,36 +44,30 @@
                   <td>{{ delivery.address }}</td>
                   <td>{{ delivery.size }}</td>
                   <td>{{ delivery.totalHT }}</td>
-                  <td>{{ delivery.totalTTC }}</td>
-                  <td>{{ delivery.unitPrice }}</td>
-                  <td>{{ delivery.tva }}</td>
+                
+           
                   <td>{{ delivery.deliveryState }}</td>
-                  <td>{{ delivery.scheduledDeliveryTime }}</td>
-                  <td>{{ delivery.actualDeliveryTime }}</td>
+                
                   <td>{{ delivery.distance }}</td>
                   <td>{{ delivery.weight }}</td>
                   <td>{{ delivery.speed }}</td>
                   <td>{{ delivery.signatureConfirmation }}</td>
                   <td>{{ delivery.insurance }}</td>
                   <td>
-                    <button routerLink="/update-delivery/{{ delivery.id }}" routerLinkActive="active" class="btn btn-info">Update</button>
-                    <button (click)="deleteDelivery(delivery.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
-                    <button (click)="deliveriesDetails(delivery.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+                    <button routerLink="/update-delivery/{{ delivery.id }}" routerLinkActive="active" mat-icon-button color="warning" aria-label="edit" class="btn btn-info"> <mat-icon>edit</mat-icon></button>
+                    <button (click)="deleteDelivery(delivery.id)"  mat-icon-button color="danger" aria-label="delete"  class="btn btn-danger"> <mat-icon>delete</mat-icon></button>
+                    <button (click)="deliveriesDetails(delivery.id)"  class="btn btn-info"><i class="fa fa-eye">View</i> </button>
 
-                    
+                  
+
+        
         
                   </td>
                 </tr>
               </tbody>
             </table>
   
-            <div>
-              <h2>Calculate Delivery Cost</h2>
-              <label for="deliveryId">Delivery ID:</label>
-              <input type="text" id="deliveryId" [(ngModel)]="deliveryId" name="deliveryId">
-              <button (click)="calculateCost()">Calculate</button>
-              <p *ngIf="totalCost !== undefined">Total Cost: {{ totalCost }}</p>
-            </div>
+       
   
             
           </div>

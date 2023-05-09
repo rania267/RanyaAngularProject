@@ -4,6 +4,10 @@ import { ContractService } from '../services/contract.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ApiResponse } from '../model/api.response';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
+
+
 @Component({
   selector: 'app-contract-front',
   templateUrl: './contract-front.component.html',
