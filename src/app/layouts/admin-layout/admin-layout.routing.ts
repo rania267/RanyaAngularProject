@@ -24,9 +24,22 @@ import { AddDeliveryComponent } from '../../add-delivery/add-delivery.component'
 import { DeliveryComponent } from '../../delivery/delivery.component';
 import { AddContractComponent } from '../../add-contract/add-contract.component';
 import { DeliveryDetailsComponent } from '../../delivery-details/delivery-details.component';
+import { RequeteComponent } from '../../requete/requete.component';
+import { KpiComponent } from '../../kpi/kpi.component';
+import { AddKpiComponent } from '../../add-kpi/add-kpi.component';
+import { AddDatabaseComponent } from '../../add-database/add-database.component';
+import { DatabaseListComponent } from '../../database-list/database-list.component';
+import { LaunchScriptComponent } from '../../launch-script/launch-script.component';
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'products',      component: ProductsComponent },
+  { path: 'requete',      component: RequeteComponent },
+  { path: 'kpi',      component: KpiComponent },
+  { path: 'addKpi',      component: AddKpiComponent },
+  { path: 'addDatabase',      component: AddDatabaseComponent },
+  { path: 'databaseList',      component: DatabaseListComponent },
+  { path: 'launchScript',      component: LaunchScriptComponent },
+
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'commands', component: CommandsComponent },
   { path: 'recievers', component: RecieversComponent },

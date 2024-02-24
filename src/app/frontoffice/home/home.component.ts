@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {ToastrService} from 'ngx-toastr';
+import { AuthService } from '../../components/auth-components/auth.service';
 import {OffreServiceService} from '../../services/offre-service.service';
+import {ToastrService} from 'ngx-toastr';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,8 +15,11 @@ export class HomeComponent implements OnInit {
   offers:any
   requests:any
   requestSelected:any
-  constructor(private OffreServiceService :OffreServiceService,public dialog: MatDialog,private toastr: ToastrService) { }
+  constructor(private authService: AuthService,private OffreServiceService :OffreServiceService,public dialog: MatDialog,private toastr: ToastrService) { }
 
+  logout(): void {
+    this.authService.signOut();
+    window.location.reload();  } 
 
   ngOnInit(): void {
     this. getAll()

@@ -5,15 +5,40 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    showSubMenu?: boolean; 
+
+    children?: RouteInfo[];
 }
 
 export const ROUTES: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard', icon: 'design_app', class: '' },
-  { path: '/products', title: 'Products', icon: 'shopping_box', class: '' },
-  { path: '/commands', title: 'Commands', icon: 'shopping_basket', class: '' },
-  { path: '/receivers', title: 'Recievers', icon: 'health_ambulance', class: '' },
-  { path: '/users', title: 'Users', icon: 'business_badge', class: '' },
-  { path: '/delivery', title: 'Deliveries', icon: 'business_badge', class: '' },
+  ,
+  { 
+    path: '/products', 
+    title: 'Manage KPIs/Queries', 
+    icon: 'business_chart-bar-32', 
+    class: '',
+    children: [
+      { path: '/requete', title: 'Queries List', icon: 'design_bullet-list-67', class: '' },
+      { path: '/kpi', title: 'KPIs List', icon: 'design_bullet-list-67', class: '' },
+      { path: '/addKpi', title: 'Add KPI', icon: 'design_bullet-list-67', class: '' }
+    ]
+    
+  },  { path: '/commands', title: 'Manage Connection  ', icon: 'business_badge', class: '',
+  children: [
+    { path: '/addDatabase', title: 'Add Database', icon: 'design_bullet-list-67', class: '' },
+    { path: '/databaseList', title: 'Databases List', icon: 'design_bullet-list-67', class: '' }  ] },
+  { path: '/receivers', title: 'Realtime Tests', icon: 'text_caps-small', class: '' 
+  ,
+  children: [
+    { path: '/launchScript', title: 'Launch Script', icon: 'design_bullet-list-67', class: '' }
+  ]},
+  { path: '/users', title: 'Consultation', icon: 'business_badge', class: '' ,
+  children: [
+    { path: '/kpi-subcategory-1', title: 'Global View', icon: 'design_bullet-list-67', class: '' },
+    { path: '/kpi-subcategory-2', title: 'Detailed View', icon: 'design_bullet-list-67', class: '' }
+  ] },
+  { path: '/delivery', title: 'Scheduled Tests', icon: 'text_caps-small', class: '' },
   { path: '/contract', title: 'Contracts', icon: 'business_badge', class: '' },
   { path: '/archives', title: 'Archives', icon: 'shopping_box', class: '' },
   { path: '/requests', title: 'requests', icon: 'objects_diamond', class: '' },
@@ -36,7 +61,10 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
+  toggleSubMenu(menuItem: RouteInfo): void {
+    menuItem.showSubMenu = !menuItem.showSubMenu;
+  }
+  
   constructor() { }
 
   ngOnInit() {

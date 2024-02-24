@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-eIEz7ZBToN5dzp6CU0dK7cFw2DcfM5/3i1PXkj+5SQQDfdzo3S/lm3+UZbE0C7RD" crossorigin="anonymous">
+
+
+<div class="limiter">
+ 
+  <div class="container-login100">
+    
+    <div class="wrap-login100 p-t-20 p-b-50">
+      <span class="login100-form-title ">
+        Create your account
+      </span>
+
+      <form class="login100-form validate-form p-b-33 p-t-5" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+
+        <div class="form-group">
+          <div class="wrap-input100 validate-input" data-validate="Enter username">
+            <label for="username" class="label-input100"> Username</label>
+            <input type="text" [(ngModel)]="form.username" name="username" id="username" class="input100" placeholder="Enter your username" autofocus="true" required minlength="3" maxlength="20">
+          </div>
+          <div class="alert-danger" *ngIf="f.submitted && f.controls['username'].invalid">
+            <div *ngIf="f.controls['username'].hasError('required')">Username is required</div>
+            <div *ngIf="f.controls['username'].hasError('minlength')">Username must be at least 3 characters</div>
+            <div *ngIf="f.controls['username'].hasError('maxlength')">Username must be at most 20 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="wrap-input100 validate-input" data-validate="Enter email">
+            <label for="email" class="label-input100"> Email</label>
+            <input type="email" [(ngModel)]="form.email" name="email" id="email" class="input100" placeholder="Enter your email" required email>
+          </div>
+          <div class="alert-danger" *ngIf="f.submitted && f.controls['email'].invalid">
+            <div *ngIf="f.controls['email'].hasError('required')">Email is required</div>
+            <div *ngIf="f.controls['email'].hasError('email')">Email must be a valid email address</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <label for="password" class="label-input100"> Password</label>
+            <input type="password" [(ngModel)]="form.password" name="password" id="password" class="input100" placeholder="Enter your password" required minlength="6">
+          </div>
+          <div class="alert-danger" *ngIf="f.submitted && f.controls['password'].invalid">
+            <div *ngIf="f.controls['password'].hasError('required')">Password is required</div>
+            <div *ngIf="f.controls['password'].hasError('minlength')">Password must be at least 6 characters</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="wrap-input100 validate-input" data-validate="Confirm password">
+            <label for="confirmPassword" class="label-input100"> Confirm Password</label>
+            <input type="password" [(ngModel)]="form.confirmPassword" name="confirmPassword" id="confirmPassword" class="input100" placeholder="Confirm your password" required minlength="6">
+          </div>
+          <div class="alert-danger" *ngIf="f.submitted && f.controls['confirmPassword'].invalid">
+            <div *ngIf="f.controls['confirmPassword'].hasError('required')">Confirm Password is required</div>
+            <div *ngIf="f.controls['confirmPassword'].hasError('minlength')">Confirm Password must be at least 6 characters</div>
+            <div *ngIf="form.password !== form.confirmPassword">Passwords do not match</div>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn m-t-32">
+          <button class="login100-form-btn" type="submit">
+            Register
+          </button>
+        </div>
+      </form>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
+    </div>
+  </div>
+</div>

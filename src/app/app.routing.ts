@@ -24,7 +24,26 @@ import { DeliveryPersonComponent } from './delivery-person/delivery-person.compo
 import { ContractFrontComponent } from './contract-front/contract-front.component';
 import { UpdateContractComponent } from './update-contract/update-contract.component';
 import { DeliverycostComponent } from './deliverycost/deliverycost.component';
+import { LoginComponent } from './components/auth-components/login/login.component';
+import { RegisterComponent } from './components/auth-components/register/register.component';
+import { ForgotPasswordComponent } from './components/auth-components/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BoardUserComponent } from './components/board-user/board-user.component';
+import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
+import { BoardAdminComponent } from './components/board-admin/board-admin.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { RequeteComponent } from './requete/requete.component';
+import { KpiComponent } from './kpi/kpi.component';
+import { AddKpiComponent } from './add-kpi/add-kpi.component';
+import { AddDatabaseComponent } from './add-database/add-database.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 const routes: Routes =[
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'resetpassword', component: ResetPasswordComponent },
   {
     path: '',
     redirectTo: 'dashboard',
@@ -45,6 +64,14 @@ const routes: Routes =[
     path: 'delivery',
    component: DeliveryComponent,
   },  
+  {
+    path: 'kpi',
+   component: KpiComponent,
+  }, 
+  {
+    path: 'requete',
+   component: RequeteComponent,
+  }, 
   {path: 'update-delivery/:id', component: UpdateDeliveryComponent},
   {path: 'delivery-details/:id', component: DeliveryDetailsComponent},
   {path: 'contract', component: ContractComponent},

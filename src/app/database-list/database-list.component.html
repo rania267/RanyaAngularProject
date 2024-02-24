@@ -1,0 +1,89 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Databases List
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="right_col" role="main">
+                        <div class="">
+                          <div class="page-title">
+                            <div class="title_left">
+                              <h3>Manage Database</h3>
+                            </div>
+                    
+                            <div class="title_right">
+                              <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                                <div class="input-group">
+                                  <!-- Angular Search Input (if needed) -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    
+                          <div class="clearfix"></div>
+                    
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2>Databases List</h2>
+                                  <ul class="nav navbar-right panel_toolbox">
+                                    <!-- Angular Dropdown Menu (if needed) -->
+                                  </ul>
+                                  <div class="clearfix"></div>
+                                </div>
+                    
+                                <div class="x_content" style="display: block;">
+                                  <div class="table-responsive">
+                                    <span class="ingredient"><h4>{{ message }}</h4></span>
+                                    <table class="table table-striped jambo_table bulk_action">
+                                      <thead>
+                                        <tr class="headings">
+                                          <th class="column-title">Database Name</th>
+                                          <th class="column-title">Username</th>
+                                          <th class="column-title">Password</th>
+                                          <th class="column-title">Port</th>
+                                          <th class="column-title">System</th>
+                                          <th class="column-title no-link last"><span class="nobr">Delete Database</span></th>
+                                          <th class="column-title"> Verify Connection</th>
+                                        </tr>
+                                      </thead>
+                    
+                                      <tbody>
+                                        <tr *ngFor="let emp of databases">
+                                          <td>{{ emp.name }}</td>
+                                          <td>{{ emp.username }}</td>
+                                          <td>{{ emp.password }}</td>
+                                          <td>{{ emp.port }}</td>
+                                          <td>{{ emp.system }}</td>
+                                          <td>
+                                            <button class="btn btn-danger btn-xs" (click)="confirmDelete(emp.id)">
+                                              <i class="fa fa-trash-o"></i>
+                                            </button>
+                                          </td>
+                                          <td>
+                                            <button class="btn btn-success btn-xs" (click)="verifyConnection(emp.id)">
+                                              <i class="fa fa-check-circle-o"></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

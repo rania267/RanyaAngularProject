@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+th{
+  color:#4e9998;
+}
+/* Add this to your component's CSS file or global styles */
+.search-input-group {
+  margin-bottom: 15px;
+  justify-content: flex-end;
+}
+
+.form-control {
+  border-radius: 0;
+  max-width: 200px; /* Set a maximum width as needed */
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+/* Optional: Style for focus state */
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+.card-title {
+  font-size: 24px;
+}

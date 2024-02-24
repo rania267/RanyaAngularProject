@@ -5,9 +5,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"> Commands list</h4>
+                    <h4 class="card-title">Commands list</h4>
                 </div>
                 <div class="card-body">
+                    <!-- Your MatTable code goes here -->
                     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
                         class="mat-elevation-z8">
 
@@ -49,7 +50,6 @@
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
-
                 </div>
             </div>
         </div>

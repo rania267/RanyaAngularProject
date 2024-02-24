@@ -50,6 +50,27 @@ export class CommandsComponent implements AfterViewInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }  error: string = '';
+  message: string = '';
+  idKpi: number = 0;
+  databaseList: any[] = []; // Remplacez par le type réel
+  // ... Ajoutez d'autres propriétés nécessaires
+
+  // Méthode pour charger les données nécessaires
+  loadData() {
+    // Utilisez le service pour récupérer les données
+    this.getDatabaseList();
+  }
+  getDatabaseList() {
+ 
   }
 
+  // Méthode pour soumettre le formulaire
+  submitForm() {
+    // Implémentez la logique pour soumettre le formulaire
+    // Utilisez les propriétés de la classe pour accéder aux valeurs du formulaire
+  }
+
+  // ... Ajoutez d'autres méthodes nécessaires
 }
+

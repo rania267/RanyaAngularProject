@@ -62,7 +62,19 @@ import { ContractDetailsComponent } from './contract-details/contract-details.co
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeliverycostComponent } from './deliverycost/deliverycost.component';
 import { ReviwListComponent } from './reviw-list/reviw-list.component';
-
+import { LoginComponent } from './components/auth-components/login/login.component';
+import { RegisterComponent } from './components/auth-components/register/register.component';
+import { ForgotPasswordComponent } from './components/auth-components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { RequeteComponent } from './requete/requete.component';
+import { KpiComponent } from './kpi/kpi.component';
+import { AddKpiComponent } from './add-kpi/add-kpi.component';
+import { AddDatabaseComponent } from './add-database/add-database.component';
+import { DatabaseListComponent } from './database-list/database-list.component';
+import { LaunchScriptComponent } from './launch-script/launch-script.component';
+import { GlobalViewComponent } from './global-view/global-view.component';
+import { DetailedViewComponent } from './detailed-view/detailed-view.component';
+import { TasksListComponent } from './tasks-list/tasks-list.component';
 @NgModule({
   imports: [
    
@@ -131,8 +143,22 @@ import { ReviwListComponent } from './reviw-list/reviw-list.component';
     ConfirmationComponent,
     CalculerSimillarComponent,
     DeliverycostComponent,
-    ReviwListComponent
+    ReviwListComponent,
 
+RequeteComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    RequeteComponent,
+KpiComponent,
+AddKpiComponent,
+AddDatabaseComponent,
+DatabaseListComponent,
+LaunchScriptComponent,
+GlobalViewComponent,
+DetailedViewComponent,
+TasksListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

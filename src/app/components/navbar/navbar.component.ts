@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import Chart from 'chart.js';
+import { AuthService } from '../auth-components/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,14 +16,22 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
+    private roles!: string[];
+    isLoggedIn = false;
+    showAdminBoard = false;
+    showModeratorBoard = false;
+    username!: string;
     public isCollapsed = true;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(private authService: AuthService,location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
 
+    logout(): void {
+      this.authService.signOut();
+      window.location.reload();  } 
+    
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
@@ -35,6 +44,18 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+
+     this.isLoggedIn = !!this.authService.getToken();
+
+     if (this.isLoggedIn) {
+       const user = this.authService.getUser();
+       this.roles = user.roles;
+ 
+       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+ 
+       this.username = user.username;
+     }
     }
 
     collapse(){

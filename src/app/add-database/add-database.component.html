@@ -1,0 +1,59 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Manage Database</h4>
+                </div>
+                <h3 style="padding-left: 30px;color:rgb(70, 104, 154);">Database Connection</h3>
+                <div class="card-body">
+                  <form [formGroup]="databaseForm" (ngSubmit)="onSubmit()">
+                    <div class="input-container">
+                      <select formControlName="selectDatabase" class="browser-default custom-select" (change)="selectChange()">
+                        <option value="">-- Select Database Type --</option>
+                        <option value="SQL">SQL</option>
+                        <option value="NoSQL">No SQL</option>
+                      </select>
+                    </div>
+   <div *ngIf="databaseForm.get('selectDatabase').value === 'SQL'">
+    <label for="selectSQLDatabase" style="font-size: 18px; font-weight: bold; margin-top: 22px;">Source_System Relational database</label>
+    <select formControlName="selectSQLDatabase" class="browser-default custom-select">
+      <option value="">-- Select SQL Database --</option>
+      <option  [value]="SqlServer">SqlServer</option>
+      <option  [value]="Postgres">Postgres</option>
+      <option  [value]="Oracle">Oracle</option>
+
+      <option [value]="MySql">MySql</option>
+
+    </select>
+  </div>
+
+  <div *ngIf="databaseForm.get('selectDatabase').value === 'NoSQL'">
+    <label for="selectSQLDatabase" style="font-size: 18px; font-weight: bold; margin-top: 22px; margin-bottom: 22px;">Source_System No Relational database</label>
+    <select formControlName="selectNoSQLDatabase" class="browser-default custom-select">
+      <option value="">-- Select NoSQL Database --</option>
+      <option value="NoSQL">MongoDb</option>
+    </select>
+  </div>
+                  
+                    <div id="formConn">
+                      <span class="ingredient"><h4>{{ message }}</h4></span>
+                  
+                    </div>
+                  
+                    <div class="form-group">
+                      <div class="col-md-9 col-sm-9 offset-md-3">
+                        <div class="row">
+                          <button type="button" id="btn1" class="login100-form-btn" (click)="toggleForm()">Choose Database</button>
+                          <button type="submit" id="btn2" class="login100-form-btn">Add Database</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
