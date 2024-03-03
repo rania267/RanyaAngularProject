@@ -1,96 +1,135 @@
-<div class="panel-header panel-header-sm">
-</div>
+<!-- kpi.component.html -->
+
+<div class="panel-header panel-header-sm"></div>
 <div class="main-content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">KPIs List
-                    </h4>
-                </div>
-                <div class="card-body">
-         
-                    
-                    <div class="input-group mb-3 search-input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Search</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Type here to search" [(ngModel)]="searchText">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </div>
-                    </div>      
-                    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-                        <!-- Id KPI Column -->
-                        <ng-container matColumnDef="id_kpi">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by ID KPI">
-                                ID KPI
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.id_kpi}} </td>
-                        </ng-container>
-
-                        <!-- Name KPI Column -->
-                        <ng-container matColumnDef="name_kpi">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Name KPI">
-                                Name KPI
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.name_kpi}} </td>
-                        </ng-container>
-
-                        <!-- Subject Area Column -->
-                        <ng-container matColumnDef="subject_area">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by Subject Area">
-                                Subject Area
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.subject_area}} </td>
-                        </ng-container>
-
-                        <!-- Type Column -->
-                        <ng-container matColumnDef="type">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by Type">
-                                Type
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-                        </ng-container>
-
-                        <!-- Seuil Column -->
-                        <ng-container matColumnDef="seuil">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by Seuil">
-                                Seuil
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.seuil}} </td>
-                        </ng-container>
-
-                        <!-- Seuil Gap Column -->
-                        <ng-container matColumnDef="seuil_gap">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by Seuil Gap">
-                                Seuil Gap
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.seuil_gap}} </td>
-                        </ng-container>
-
-                        <!-- Seuil Data Quality Column -->
-                        <ng-container matColumnDef="seuil_dataQuality">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header
-                                sortActionDescription="Sort by Seuil Data Quality">
-                                Seuil Data Quality
-                            </th>
-                            <td mat-cell *matCellDef="let element"> {{element.seuil_dataQuality}} </td>
-                        </ng-container>
-
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">KPI</h4>
         </div>
+        <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">KPIs List</h3>
+        <div class="card-body">
+          <button mat-raised-button (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+            Add Query
+          </button>
+        <!-- Search Input -->
+<div class="input-group mb-3 search-input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Search</span>
     </div>
+    <input type="text" class="form-control" placeholder="Type here to search" [(ngModel)]="searchText" (input)="filterDatabases()">
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <!-- Name KPI Column -->
+            <ng-container matColumnDef="name_kpi">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Name KPI"
+              >
+                KPI  Name
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.name_kpi }}</td>
+            </ng-container>
+
+            <!-- Subject Area Column -->
+            <ng-container matColumnDef="subject_area">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Subject Area"
+              >
+                Subject Area
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.subject_area }}</td>
+            </ng-container>
+
+            <!-- Type Column -->
+            <ng-container matColumnDef="type">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Type"
+              >
+                Type
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+            </ng-container>
+
+            <!-- Seuil Column -->
+            <ng-container matColumnDef="seuil">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Seuil"
+              >
+                Limit
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.seuil }}</td>
+            </ng-container>
+
+            <!-- Seuil Gap Column -->
+            <ng-container matColumnDef="seuil_gap">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Seuil Gap"
+              >
+                Seuil Gap
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.seuil_gap }}</td>
+            </ng-container>
+
+            <!-- Seuil Data Quality Column -->
+            <ng-container matColumnDef="seuil_dataQuality">
+              <th
+                mat-header-cell
+                *matHeaderCellDef
+                mat-sort-header
+                sortActionDescription="Sort by Seuil Data Quality"
+              >
+                Seuil Data Quality
+              </th>
+              <td
+                mat-cell
+                *matCellDef="let element"
+              >
+                {{ element.seuil_dataQuality }}
+              </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">
+                Actions
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button (click)="edit(element)" mat-icon-button>
+                  <mat-icon style="color: rgb(53, 74, 106);">edit</mat-icon>
+                </button>
+                <button (click)="delete(element)" mat-icon-button>
+                  <mat-icon style="color: rgb(53, 74, 106);">delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

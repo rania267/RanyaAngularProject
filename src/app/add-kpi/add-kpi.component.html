@@ -1,61 +1,89 @@
-<!-- index.html -->
-<div class="container body">
-    <div id="sidebar">
-      <!-- Include sidebar content here -->
-    </div>
-    <div class="right_col" role="main">
-      <!-- Rest of your HTML content here -->
-      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Query</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" id="bodyModal">
-              <!-- Content for Query modal -->
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Return</button>
+<!-- add-kpi.component.html -->
+
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Manage KPIs</h4>
+        </div>
+        <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Add Kpi</h3>
+
+        <!-- Step Indicators -->
+        <div class="step-indicator">
+          <div class="step-indicator-item" *ngFor="let step of steps; let i = index" [class.active]="currentStep === i + 1">
+            <div class="step-title">
+              {{ i + 1 === 1 ? 'Add KPI' : i + 1 === 2 ? 'First Query' : step }}
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong2" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Query</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align">Query<span class="required">*</span></label>
-              <div class="col-md-6 col-sm-6">
-                <textarea cols="20" rows="30" hidden="true" class="modal-body" id="bodyModal2" name="requetee"></textarea>
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="dateDeb">Start Date<span class="required">*</span></label>
-              <div class="col-md-6 col-sm-6">
-                <input type="date" name="dateDeb" id="dateDeb" class="form-control">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="dateFin">End Date <span class="required">*</span></label>
-              <div class="col-md-6 col-sm-6">
-                <input type="date" id="dateFin" name="dateFin" class="form-control">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" type="button" onclick="tester();">Test</button>
-            </div>
-          </div>
+<!-- Step Content -->
+<div class="card-body" *ngIf="currentStep === 1">
+    <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Create KPI</h3>
+    
+   <!-- Formulaire d'ajout de KPI -->
+<form (ngSubmit)="addKpi()">
+
+    <div class="form-group">
+      <label for="name">KPI's Name: <span class="required">*</span></label>
+      <input type="text" id="name" name="name" [(ngModel)]="newKpi.name_kpi" class="form-control" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="subjectArea">KPI's Subject Area: <span class="required">*</span></label>
+      <input type="text" id="subjectArea" name="subjectArea" [(ngModel)]="newKpi.subject_area" class="form-control" required>
+
+    </div>
+  
+    <div class="form-group">
+      <label for="type">Type: <span class="required">*</span></label>
+      <input type="text" id="type" name="type" [(ngModel)]="newKpi.type" class="form-control" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="seuil">KPI Limit: <span class="required">*</span></label>
+      <input type="number" id="seuil" name="seuil" [(ngModel)]="newKpi.seuil" class="form-control" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="seuilGap">Acceptance GAP Limit: <span class="required">*</span></label>
+      <input type="number" id="seuilGap" name="seuilGap" [(ngModel)]="newKpi.seuil_gap" class="form-control" required>    </div>
+  
+    <div class="form-group">
+      <label for="seuilDataQuality">Acceptance DataQuality Limit: <span class="required">*</span></label>
+      <input type="number" id="seuilDataQuality" name="seuilDataQuality" [(ngModel)]="newKpi.seuil_dataQuality" class="form-control" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Add KPI</button>
+  </form>
+  
+  </div>
+  
+         <div class="card-body" *ngIf="currentStep === 2">
+    <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">First Query</h3>
+
+
+        </div>
+
+        <div class="card-body" *ngIf="currentStep === 2">
+            <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Second Query</h3>
+        
+        
+                </div>
+
+                
+         <div class="card-body" *ngIf="currentStep === 2">
+            <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Validation</h3>
+        
+        
+                </div>
+        <!-- Navigation Buttons -->
+        <div class="button-container">
+          <button type="button" (click)="previousStep()" [disabled]="currentStep === 1">Previous</button>
+          <button type="button" (click)="nextStep()" [disabled]="currentStep === steps.length">Next</button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

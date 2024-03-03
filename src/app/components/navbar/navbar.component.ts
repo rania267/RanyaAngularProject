@@ -28,9 +28,7 @@ export class NavbarComponent implements OnInit {
           this.sidebarVisible = false;
     }
 
-    logout(): void {
-      this.authService.signOut();
-      window.location.reload();  } 
+
     
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
@@ -57,7 +55,12 @@ export class NavbarComponent implements OnInit {
        this.username = user.username;
      }
     }
+    logout(): void {
+      this.authService.signOut();
+      window.location.reload();
 
+      this.router.navigate(['/home']);
+    }
     collapse(){
       this.isCollapsed = !this.isCollapsed;
       const navbar = document.getElementsByTagName('nav')[0];

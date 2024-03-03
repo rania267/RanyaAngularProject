@@ -1,0 +1,52 @@
+/* Ajoutez ces styles dans votre fichier CSS global ou dans le composant spécifique si nécessaire */
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px; /* Ajustement de la marge inférieure pour l'espace entre les champs */
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px; /* Ajustement de la marge supérieure pour l'espace entre la table et les éléments précédents */
+  }
+  
+  th {
+    color: #4e9998;
+    font-size: 18px; /* Ajustement de la taille du texte du titre de colonne */
+  }
+  
+  .card-title {
+    font-size: 32px; /* Ajustement de la taille du titre de la carte */
+    margin-bottom: 30px; /* Ajustement de la marge inférieure pour l'espace entre le titre de la carte et le contenu */
+  }
+  
+  .form-group {
+    text-align: center;
+    margin-top: 30px; /* Ajustement de la marge supérieure pour l'espace entre le groupe de formulaire et les éléments précédents */
+  }
+  
+  .login100-form-btn {
+    width: 100%;
+    max-width: 250px; /* Ajustement de la largeur maximale du bouton */
+    padding: 15px;
+    background: #f33ab5;
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Ajustement du rayon de la bordure du bouton */
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 15px; /* Ajustement de la marge entre les boutons */
+  }
+  
+  .large-label {
+    font-size: 22px; /* Ajustement de la taille du texte du libellé */
+    margin-bottom: 15px; /* Ajustement de la marge inférieure pour l'espace entre les libellés et les champs de formulaire */
+  }
+  
+  .database-connection-title {
+    padding-left: 30px;
+    color: rgb(53, 74, 106);
+    font-size: 28px; /* Ajustement de la taille du titre spécifique */
+    margin-bottom: 25px; /* Ajustement de la marge inférieure pour l'espace entre le titre spécifique et les éléments précédents */
+  }
+  

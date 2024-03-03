@@ -1,0 +1,69 @@
+<form [formGroup]="queryForm">
+    <div class="home-container">
+      <h2>Update Query</h2>
+  
+      <!-- Code Requete -->
+      <div class="example-container">
+        <label for="exampleInputCodeRequete">Query Code:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Query Code</mat-label>
+          <input matInput formControlName="code_requete">
+          <mat-error *ngIf="queryForm.get('code_requete').hasError('required')">Code Requete is required</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Date -->
+      <div class="example-container">
+        <label for="exampleInputDate">Date:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput formControlName="date">
+        </mat-form-field>
+      </div>
+  
+      <!-- Val KPI -->
+      <div class="example-container">
+        <label for="exampleInputValKPI">Val KPI:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Val KPI</mat-label>
+          <input matInput formControlName="val_kpi">
+          <mat-error *ngIf="queryForm.get('val_kpi').hasError('required')">Val KPI is required</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <!-- Val KPI Alias -->
+      <div class="example-container">
+        <label for="exampleInputValKPIAlias">Val KPI Alias:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Val KPI Alias</mat-label>
+          <input matInput formControlName="val_kpi_alias">
+        </mat-form-field>
+      </div>
+  
+      <!-- Copr -->
+      <div class="example-container">
+        <label for="exampleInputCopr">Copr:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Copr</mat-label>
+          <input matInput formControlName="copr">
+        </mat-form-field>
+      </div>
+  
+      <!-- Date Image -->
+      <div class="example-container">
+        <label for="exampleInputDateImage">Date Image:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Date Image</mat-label>
+          <input matInput formControlName="date_image">
+        </mat-form-field>
+      </div>
+  
+    </div>
+  
+    <button class="btn btn-primary button" (click)="updateQuery()">Update</button>
+    <button class="btn btn-primary button" >See Query</button>
+    <button class="btn btn-primary button" >Execute Query</button>
+
+
+  </form>
+  

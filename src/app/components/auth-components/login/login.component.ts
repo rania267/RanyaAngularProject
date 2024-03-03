@@ -24,7 +24,11 @@ export class LoginComponent {
       this.roles = this.authService.getUser().roles;
     }
   }
-
+  logout(): void {
+    this.authService.signOut();
+    
+    this.router.navigate(['/home']);
+  }
   onSubmit(): void {
     this.authService.login(this.form).subscribe(
       data => {

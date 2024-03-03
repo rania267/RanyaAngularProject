@@ -75,6 +75,12 @@ import { LaunchScriptComponent } from './launch-script/launch-script.component';
 import { GlobalViewComponent } from './global-view/global-view.component';
 import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
+import { AddDataComponent } from './add-data/add-data.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { UpdateDatabaseComponent } from './update-database/update-database.component';
+import { UpdateKpiComponent } from './update-kpi/update-kpi.component';
+import { AddQueryComponent } from './add-query/add-query.component';
+import { UpdateQueryComponent } from './update-query/update-query.component';
 @NgModule({
   imports: [
    
@@ -158,7 +164,13 @@ DatabaseListComponent,
 LaunchScriptComponent,
 GlobalViewComponent,
 DetailedViewComponent,
-TasksListComponent
+TasksListComponent,
+AddDataComponent,
+ConfirmDialogComponent,
+UpdateDatabaseComponent,
+UpdateKpiComponent,
+AddQueryComponent,
+UpdateQueryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

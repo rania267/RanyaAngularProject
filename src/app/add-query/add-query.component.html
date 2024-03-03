@@ -1,0 +1,66 @@
+
+
+<form [formGroup]="requeteForm">
+    <div class="home-container">
+      <h2>Create Query</h2>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Code Requête:</mat-label>
+          <input matInput formControlName="code_requete">
+          <mat-error>Code Requête is required</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Date:</mat-label>
+          <input matInput formControlName="date">
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Valeur KPI:</mat-label>
+          <mat-select formControlName="val_kpi">
+            <mat-option *ngFor="let kpi of kpiList" [value]="kpi.id">
+              {{ kpi.name_kpi }}
+            </mat-option>
+          </mat-select>
+          <mat-error>Valeur KPI is required</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Valeur KPI Alias:</mat-label>
+          <input matInput formControlName="val_kpi_alias">
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Copr:</mat-label>
+          <input matInput formControlName="copr">
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Date Image:</mat-label>
+          <input matInput formControlName="date_image">
+        </mat-form-field>
+      </div>
+  
+    </div>
+  
+    <div class="form-group">
+      <div class="col-md-9 col-sm-9 offset-md-3">
+        <div class="row">
+          <button type="submit" id="btn2" (click)="createQuery()" class="login100-form-btn">Add Query</button>
+          <button type="button" id="btn1" class="login100-form-btn" routerLink="/queries">View Queries</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

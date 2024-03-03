@@ -1,89 +1,111 @@
 <div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Databases List
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <div class="right_col" role="main">
-                        <div class="">
-                          <div class="page-title">
-                            <div class="title_left">
-                              <h3>Manage Database</h3>
-                            </div>
-                    
-                            <div class="title_right">
-                              <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                                <div class="input-group">
-                                  <!-- Angular Search Input (if needed) -->
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    
-                          <div class="clearfix"></div>
-                    
-                          <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                              <div class="x_panel">
-                                <div class="x_title">
-                                  <h2>Databases List</h2>
-                                  <ul class="nav navbar-right panel_toolbox">
-                                    <!-- Angular Dropdown Menu (if needed) -->
-                                  </ul>
-                                  <div class="clearfix"></div>
-                                </div>
-                    
-                                <div class="x_content" style="display: block;">
-                                  <div class="table-responsive">
-                                    <span class="ingredient"><h4>{{ message }}</h4></span>
-                                    <table class="table table-striped jambo_table bulk_action">
-                                      <thead>
-                                        <tr class="headings">
-                                          <th class="column-title">Database Name</th>
-                                          <th class="column-title">Username</th>
-                                          <th class="column-title">Password</th>
-                                          <th class="column-title">Port</th>
-                                          <th class="column-title">System</th>
-                                          <th class="column-title no-link last"><span class="nobr">Delete Database</span></th>
-                                          <th class="column-title"> Verify Connection</th>
-                                        </tr>
-                                      </thead>
-                    
-                                      <tbody>
-                                        <tr *ngFor="let emp of databases">
-                                          <td>{{ emp.name }}</td>
-                                          <td>{{ emp.username }}</td>
-                                          <td>{{ emp.password }}</td>
-                                          <td>{{ emp.port }}</td>
-                                          <td>{{ emp.system }}</td>
-                                          <td>
-                                            <button class="btn btn-danger btn-xs" (click)="confirmDelete(emp.id)">
-                                              <i class="fa fa-trash-o"></i>
-                                            </button>
-                                          </td>
-                                          <td>
-                                            <button class="btn btn-success btn-xs" (click)="verifyConnection(emp.id)">
-                                              <i class="fa fa-check-circle-o"></i>
-                                            </button>
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Your existing panel-header content goes here -->
 </div>
 
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Manage Database</h4>
+        </div>
+        <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Databases List</h3>
+
+        <div class="card-body">
+<!-- Search Input -->
+<div class="input-group mb-3 search-input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Search</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Type here to search" [(ngModel)]="searchText" (input)="filterDatabases()">
+  <div class="input-group-append">
+    <span class="input-group-text">
+      <i class="fas fa-search"></i>
+    </span>
+  </div>
+</div>
+
+
+          <!-- Database Table -->
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <!-- Id Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">
+                Database Name
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Username Column -->
+            <ng-container matColumnDef="username">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Username">
+                Username
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
+
+            <!-- Password Column -->
+            <ng-container matColumnDef="password">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Password">
+                Password
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+            </ng-container>
+
+            <!-- Port Column -->
+            <ng-container matColumnDef="port">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Port">
+                Port
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.port}} </td>
+            </ng-container>
+
+            <!-- System Column -->
+            <ng-container matColumnDef="system">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by System">
+                System
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.system}} </td>
+            </ng-container>
+
+            <!-- URL Column -->
+            <ng-container matColumnDef="url">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by URL">
+                URL
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+            </ng-container>
+
+            <!-- Verify Connection Column -->
+            <ng-container matColumnDef="verify_connection">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Verify Connection">
+                Verify Connection
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.verify_connection}} </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">
+                Actions
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button (click)="edit(element)" mat-icon-button>
+                  <mat-icon style="color: rgb(53, 74, 106);" >edit</mat-icon>
+                </button>
+                <button (click)="delete(element)" mat-icon-button>
+                  <mat-icon style="color: rgb(53, 74, 106);">delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

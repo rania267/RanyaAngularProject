@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 import { User } from '../../class/user';
-const AUTH_API = 'http://localhost:6060/api/auth/';
+const AUTH_API = 'http://localhost:6068/api/auth/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -16,9 +16,9 @@ const USER_KEY = 'auth-user';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:6060'; 
-  private apiUrl = 'http://localhost:6060/api/auth'; 
-  private apiUrl2 = 'http://localhost:6060/api/test'; 
+  private baseUrl = 'http://localhost:6068'; 
+  private apiUrl = 'http://localhost:6068/api/auth'; 
+  private apiUrl2 = 'http://localhost:6068/api/test'; 
 
   constructor(private http: HttpClient) { }
 

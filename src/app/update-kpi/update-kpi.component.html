@@ -1,0 +1,58 @@
+<form [formGroup]="kpiForm">
+    <div class="home-container">
+      <h2>Update Kpi</h2>
+      <div class="example-container">
+        <label for="exampleInputName">KPI's Name:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>KPI's Name</mat-label>
+          <input matInput formControlName="name_kpi">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="example-container">
+        <label for="exampleInputSubjectArea">KPI's Subject Area:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>KPI's Subject Area</mat-label>
+          <input matInput formControlName="subject_area">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="example-container">
+        <label for="exampleInputType">Type:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Type</mat-label>
+          <input matInput formControlName="type">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <label for="exampleInputSeuil">Dimensional rounding Limit:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Seuil</mat-label>
+          <input matInput formControlName="seuil">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <label for="exampleInputSeuilGap">GAP Limit:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>GAP Limit</mat-label>
+          <input matInput formControlName="seuil_gap">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container">
+        <label for="exampleInputSeuilDataQuality">DataQuality Limit:</label>
+        <mat-form-field appearance="fill">
+          <mat-label>DataQuality Limit</mat-label>
+          <input matInput formControlName="seuil_dataQuality">
+          <mat-error>Test</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <button class="btn btn-primary button" (click)="updateKpi()">Update</button>
+  </form>
+  

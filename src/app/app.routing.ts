@@ -44,6 +44,7 @@ const routes: Routes =[
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'home', component: HomeComponent },
   { path: 'resetpassword', component: ResetPasswordComponent },
+
   {
     path: '',
     redirectTo: 'dashboard',

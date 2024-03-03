@@ -26,54 +26,62 @@
                       </div>
                   </div>
 
-                  <!-- Requete Table -->
-                  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+               <!-- ... (votre code existant) -->
 
-                      <!-- Id Column -->
-                      <ng-container matColumnDef="id">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">
-                              ID
-                          </th>
-                          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                      </ng-container>
-
-                      <!-- Code Requete Column -->
-                      <ng-container matColumnDef="code_requete">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Code Requete">
-                              Code Requete
-                          </th>
-                          <td mat-cell *matCellDef="let element"> {{element.code_requete}} </td>
-                      </ng-container>
-
-                      <!-- Date Column -->
-                      <ng-container matColumnDef="date">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Date">
-                              Date
-                          </th>
-                          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-                      </ng-container>
-
-                      <!-- Val KPI Column -->
-                      <ng-container matColumnDef="val_kpi">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Val KPI">
-                              Val KPI
-                          </th>
-                          <td mat-cell *matCellDef="let element"> {{element.val_kpi}} </td>
-                      </ng-container>
-
-                      <!-- Val KPI Alias Column -->
-                      <ng-container matColumnDef="val_kpi_alias">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Val KPI Alias">
-                              Val KPI Alias
-                          </th>
-                          <td mat-cell *matCellDef="let element"> {{element.val_kpi_alias}} </td>
-                      </ng-container>
-
-                      <!-- Other Columns... -->
-
-                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  </table>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Id Column -->
+    <ng-container matColumnDef="code_requete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Code Requete
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.code_requete}} </td>
+    </ng-container>
+  
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Date
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+  
+    <!-- Val KPI Column -->
+    <ng-container matColumnDef="val_kpi">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Val KPI
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.val_kpi}} </td>
+    </ng-container>
+  
+    <!-- Val KPI Alias Column -->
+    <ng-container matColumnDef="val_kpi_alias">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Val KPI Alias
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.val_kpi_alias}} </td>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Actions
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="edit(element)" mat-icon-button>
+          <mat-icon style="color: rgb(53, 74, 106);">edit</mat-icon>
+        </button>
+        <button (click)="delete(element)" mat-icon-button>
+          <mat-icon style="color: rgb(53, 74, 106);">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <!-- Autres colonnes... -->
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
               </div>
           </div>
       </div>

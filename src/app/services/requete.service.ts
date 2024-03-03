@@ -18,7 +18,26 @@ export class RequeteService {
   }
 
 
-  updateRequete(requestBody: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/updatee`, requestBody);
+  private apiUrl = 'http://localhost:6062/api/requetes';
+
+
+  getAllRequetes(): Observable<any> {
+    return this.http.get(`${this.apiUrl}`);
+  }
+
+  getRequeteById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  createRequete(requete: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, requete);
+  }
+
+  updateRequete(id: number, requete: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, requete);
+  }
+
+  deleteRequete(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

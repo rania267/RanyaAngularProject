@@ -9,7 +9,9 @@ table {
     margin-bottom: 15px;
     justify-content: flex-end;
   }
-
+  .card-title {
+    font-size: 24px;
+  }
   .form-control {
     border-radius: 0;
     max-width: 200px; /* Set a maximum width as needed */

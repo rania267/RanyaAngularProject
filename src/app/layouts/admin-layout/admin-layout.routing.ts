@@ -30,6 +30,9 @@ import { AddKpiComponent } from '../../add-kpi/add-kpi.component';
 import { AddDatabaseComponent } from '../../add-database/add-database.component';
 import { DatabaseListComponent } from '../../database-list/database-list.component';
 import { LaunchScriptComponent } from '../../launch-script/launch-script.component';
+import { GlobalViewComponent } from '../../global-view/global-view.component';
+import { DetailedViewComponent } from '../../detailed-view/detailed-view.component';
+import { TasksListComponent } from '../../tasks-list/tasks-list.component';
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'products',      component: ProductsComponent },
@@ -39,6 +42,12 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'addDatabase',      component: AddDatabaseComponent },
   { path: 'databaseList',      component: DatabaseListComponent },
   { path: 'launchScript',      component: LaunchScriptComponent },
+  { path: 'globalView',      component: GlobalViewComponent },
+  { path: 'launchScript',      component: LaunchScriptComponent },
+  { path: 'detailedView',      component: DetailedViewComponent },
+  { path: 'addKpi',      component: AddKpiComponent },
+
+  { path: 'tasksList',      component: TasksListComponent },
 
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'commands', component: CommandsComponent },

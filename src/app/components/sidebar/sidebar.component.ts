@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
     children: [
       { path: '/requete', title: 'Queries List', icon: 'design_bullet-list-67', class: '' },
       { path: '/kpi', title: 'KPIs List', icon: 'design_bullet-list-67', class: '' },
-      { path: '/addKpi', title: 'Add KPI', icon: 'design_bullet-list-67', class: '' }
+      { path: '/addKpi', title: ' Add KPIs & Queries', icon: 'design_bullet-list-67', class: '' }
     ]
     
   },  { path: '/commands', title: 'Manage Connection  ', icon: 'business_badge', class: '',
@@ -35,10 +35,14 @@ export const ROUTES: RouteInfo[] = [
   ]},
   { path: '/users', title: 'Consultation', icon: 'business_badge', class: '' ,
   children: [
-    { path: '/kpi-subcategory-1', title: 'Global View', icon: 'design_bullet-list-67', class: '' },
-    { path: '/kpi-subcategory-2', title: 'Detailed View', icon: 'design_bullet-list-67', class: '' }
+    { path: '/globalView', title: 'Global View', icon: 'design_bullet-list-67', class: '' },
+    { path: '/detailedView', title: 'Detailed View', icon: 'design_bullet-list-67', class: '' }
   ] },
-  { path: '/delivery', title: 'Scheduled Tests', icon: 'text_caps-small', class: '' },
+  { path: '/delivery', title: 'Scheduled Tests', icon: 'text_caps-small', class: '' ,
+  children: [
+    { path: '/tasksList', title: 'Tasks List', icon: 'design_bullet-list-67', class: '' },
+
+  ] },
   { path: '/contract', title: 'Contracts', icon: 'business_badge', class: '' },
   { path: '/archives', title: 'Archives', icon: 'shopping_box', class: '' },
   { path: '/requests', title: 'requests', icon: 'objects_diamond', class: '' },
