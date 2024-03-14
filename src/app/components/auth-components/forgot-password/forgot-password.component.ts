@@ -18,7 +18,6 @@ export class ForgotPasswordComponent {
   user: User = new User();
  
   resetPassword() {
-    // Show SweetAlert immediately
     Swal.fire({
       title: 'Processing...',
       text: 'Please wait while we process your request.',
@@ -27,12 +26,10 @@ export class ForgotPasswordComponent {
       showConfirmButton: false,
     });
 
-    // Perform the password reset request
     this.authService.forgotPassword(this.email).subscribe(
       (response: any) => {
         console.log('Password reset request successful', response);
 
-        // Close the initial SweetAlert and show success message
         Swal.fire({
           title: 'Success!',
           text: 'A PASSWORD RESET REQUEST HAS BEEN SENT. PLEASE CHECK YOUR INBOX FOR THE RESET LINK.',
@@ -43,7 +40,6 @@ export class ForgotPasswordComponent {
       (error: any) => {
         console.error('Password reset request failed', error);
 
-        // Close the initial SweetAlert and show error message
         Swal.fire({
           title: 'Error!',
           text: error.error?.error || 'Password reset request failed',

@@ -1,0 +1,57 @@
+<!-- add-database.component.html -->
+
+<div class="panel-header panel-header-sm"></div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Choose Database</h4>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="databaseForm" >
+            <div class="form-group">
+              <label for="selectDatabase">Select Database Type</label>
+              <select formControlName="selectDatabase" class="form-control" >
+                <option value="" disabled>Select Database Type</option>
+                <option value="SQL">SQL</option>
+                <option value="NoSQL">No SQL</option>
+              </select>
+            </div>
+
+            <div *ngIf="databaseForm.get('selectDatabase').value === 'SQL'">
+              <div class="form-group">
+                <label for="selectSQLDatabase">Select SQL Database</label>
+                <select formControlName="selectSQLDatabase" class="form-control">
+                  <option value="" disabled>Select SQL Database</option>
+                  <option value="SqlServer">SqlServer</option>
+                  <option value="Postgres">Postgres</option>
+                  <option value="Oracle">Oracle</option>
+                  <option value="MySql">MySql</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary" (click)="verifyPostgresConnection()">Choose Database</button>
+            </div>
+
+            <div *ngIf="databaseForm.get('selectDatabase').value === 'NoSQL'">
+              <div class="form-group">
+                <label for="selectNoSQLDatabase">Select NoSQL Database</label>
+                <select formControlName="selectNoSQLDatabase" class="form-control">
+                  <option value="" disabled>Select NoSQL Database</option>
+                  <option value="MongoDb">MongoDb</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary" (click)="verifyPostgresConnection()">Choose Database</button>
+            </div>
+
+            <div id="formConn">
+              <span class="ingredient"><h4>{{ verificationResult }}</h4></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

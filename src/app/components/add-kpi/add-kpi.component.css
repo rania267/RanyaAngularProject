@@ -1,0 +1,141 @@
+/* add-kpi.component.css */
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+/* Ajoutez ces styles dans votre fichier CSS */
+.custom-swal-container {
+  max-width: 500px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* Permet la disposition verticale */
+  max-height: 400px; /* Ajustez la hauteur maximale selon vos besoins */
+}
+
+.custom-swal-title {
+  color: #3498db; /* Bleu par exemple */
+}
+
+.custom-swal-html-container {
+  overflow-y: auto; /* Activation de la barre de défilement si nécessaire */
+}
+.modal-backdrop {
+  background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond du modal */
+}
+
+.modal-content {
+  background-color: #ffffff; /* Couleur de fond du contenu modal */
+}
+
+th {
+  color: #4e9998;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Button Container Styles */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+.button-container button {
+  margin-left: 10px; /* Add spacing between buttons */
+  margin-right: 10px; /* Add right padding */
+  padding: 10px;
+  background-color: #3498db; /* Blue */
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.database-label {
+  font-size: 16px; /* Ajustez la taille de la police selon vos besoins */
+  font-weight: bold; /* Mettez la police en gras */
+}
+.button-container button[disabled] {
+  background-color: #4e9998; /* Green */
+  cursor: not-allowed;
+}
+.center-content {
+  text-align: center;
+}
+/* Step Indicator Styles */
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  counter-reset: step; /* Reset the counter for each step indicator */
+}
+
+.step-indicator-item {
+  position: relative;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.step-indicator-item::before {
+  content: counter(step); /* Add this line to show the counter as content */
+  counter-increment: step; /* Increment the counter for each item */
+  width: 30px;
+  height: 30px;
+  border: 2px solid #3498db; /* Border color for circles */
+  background-color: #3498db; /* Background color for circles */
+  color: #fff; /* Text color for numbers */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  z-index: 2;
+}
+
+.step-indicator-item.active::before {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.step-indicator-item.completed::before {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.step-indicator-item::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  z-index: 1;
+}
+.card-title {
+  font-size: 24px;
+}
+.step-indicator-item.active::after,
+.step-indicator-item.completed::after {
+  background-color: #3498db;
+}
+
+.step-indicator-item::after {
+  content: '';
+  width: calc(100% - 60px); /* Ajustez selon votre mise en page */
+  height: 2px;
+  background-color: #ccc;
+  position: absolute;
+  top: 15px;
+  left: 30px; /* Ajustez selon la marge de gauche de vos étapes */
+  right: 30px; /* Ajustez selon la marge de droite de vos étapes */
+  z-index: 1;
+}

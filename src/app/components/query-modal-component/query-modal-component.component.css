@@ -1,0 +1,24 @@
+
+.modal-content {
+    background-color: #fff; /* Couleur de fond blanche */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  }
+  
+  /* Style pour l'en-tête de la fenêtre modale */
+  .modal-header {
+    background-color: #007bff; 
+    color: #fff; 
+  }
+  
+  .modal-header .close {
+    color: #fff; 
+  }
+  
+  .modal-body {
+    max-height: 400px; 
+    overflow-y: auto; 
+  }
+  
+  .modal-footer {
+  }
+  

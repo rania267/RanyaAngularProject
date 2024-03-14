@@ -1,5 +1,7 @@
 export class Kpi {
-
+    isArchived: boolean;
+    isPermanentlyDeleted: boolean;
+  
     id!: number;
     name_kpi!: string;
     subject_area!: string;

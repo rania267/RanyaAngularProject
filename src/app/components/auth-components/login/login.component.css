@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-image: url('/assets/img/wev.jpg');
+
 
 
   padding: 0;
@@ -11,6 +11,48 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+.description {
+  line-height: 1.6; /* Vous pouvez ajuster cette valeur selon vos préférences */
+}  
+.limiter {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-box {
+  display: inline-block; /* Assure que le bouton s'adapte à la largeur du texte */
+}
+
+.btn1 {
+  display: inline-block;
+  padding: 10px 20px; /* Ajustez selon vos besoins */
+  font-size: 16px;
+  text-decoration: none;
+  color: #167967; /* Couleur du texte */
+  background-color: #fff; /* Couleur de fond */
+  border: 2px solid #ccc; /* Bordure */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: background-color 0.3s ease; /* Animation de transition pour une expérience utilisateur fluide */
+}
+
+.btn1:hover {
+  background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+.company-info {
+  flex-basis: 40%; /* Ajustez la largeur selon vos besoins */
+}
+
+.wrap-login100 {
+  flex-basis: 50%; /* Ajustez la largeur selon vos besoins */
+}
+
+/* Ajoutez ce style à votre feuille de style */
+.wevioo-description {
+  font-size: 1.2rem; /* Ajustez la taille de la police selon vos préférences */
+  line-height: 1.6;
+  max-width: 600px; /* Ajustez la largeur maximale selon vos préférences */
+  margin-bottom: 20px; /* Ajoutez une marge en bas pour séparer la description des autres éléments */
 }
 
 .limiter {

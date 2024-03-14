@@ -1,0 +1,31 @@
+<!-- corbeille.component.html -->
+
+<div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Corbeille</h4>
+          </div>
+          <div class="card-body">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Actions
+                </th>
+                <td mat-cell *matCellDef="let element">
+                  <button (click)="restoreKpi(element)" mat-icon-button>
+                    <mat-icon style="color: rgb(53, 74, 106);">restore</mat-icon>
+                  </button>
+                  <button (click)="deletePermanently(element)" mat-icon-button>
+                    <mat-icon style="color: red;">delete_forever</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,44 +1,109 @@
-<body>
-<div class="limiter">
-  <li class="nav-item">
-    <a href class="nav-link" (click)="logout()">LogOut</a>
-  </li>
-  <div class="container-login100">
 
-    <div class="wrap-login100">
-      <h2 class="login100-form-title">Account Login</h2>
+<div class="hero_area">
 
-      <form *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()" #f="ngForm" class="login100-form" novalidate>
-        <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
-          Login failed: {{ errorMessage }}
+  <div class="hero_bg_box">
+      <img src="../../../assets/img/wev.jpg" alt="">
+  </div>
+
+  <!-- header section strats -->
+  <header class="header_section">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+              <a class="navbar-brand" href="index.html">
+                  <span>
+DWH Test Automation </span>
+              </a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class=""> </span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                 
+                 
+                      
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.html">Contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="doctors.html" routerLink="/login">Login</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="doctors.html" routerLink="/register">Register</a>
+                      </li>
+                      <form class="form-inline">
+                          <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+  </header>
+  <div class="d-flex" style="margin-top: 80px;"> 
+    
+      <!-- Deuxième section -->
+      <div class="limiter" > <!-- Ajustez la marge en fonction de vos besoins -->
+        <div class="company-info" style="margin-top: 90px;">
+                    <h2 class="company-title" style="color: white; font-size: 30px;">Wevioo</h2>
+          <p class="company-description" style="color: white; font-size: 18px;">
+            An international group specializing in digital consulting and services which supports its clients in their digital transformation projects.
+          </p>
+        
+          <div class="btn-box">
+            <a href="" class="btn1">
+              Read More
+            </a>
+          </div>
+          
+          
         </div>
+        
 
-        <div class="form-group" [ngClass]="{'has-error': f.submitted && f.invalid}">
-          <div class="input-wrap">
-            <label for="username">Username</label>
-            <input type="text" class="input100" name="username"  [(ngModel)]="form.username" required placeholder="Enter your username" />
+        <div class="wrap-login100">
+         
+          <h2 class="login100-form-title">Account Login</h2>
+    
+<form *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()" #f="ngForm" class="login100-form" novalidate>
+            <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
+              Login failed: {{ errorMessage }}
+            </div>
+    
+            <div class="form-group" [ngClass]="{'has-error': f.submitted && f.invalid}">
+              <div class="input-wrap">
+                <label for="username">Username</label>
+                <input type="text" class="input100" name="username"  [(ngModel)]="form.username" required placeholder="Enter your username" />
+              </div>
+    
+              <div class="input-wrap">
+                <label for="password">Password</label>
+                <input type="password" class="input100" name="password"   [(ngModel)]="form.password" required minlength="6" placeholder="Enter your password" />
+              </div>
+    
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">Login</button>
+              </div>
+    
+              <h4 class="text-center"><a class="txt2" routerLink="/forgot-password"><i class="fas fa-question-circle"></i> Forget Password?</a></h4>
+              <h4 class="text-center"><a class="txt2" routerLink="/register"><i class="fas fa-user-plus"></i> Register</a></h4>
+            </div>
+          </form>
+          <div *ngIf="isLoggedIn" class="alert alert-success">
+            Logged in as {{ roles }}.
           </div>
-
-          <div class="input-wrap">
-            <label for="password">Password</label>
-            <input type="password" class="input100" name="password"   [(ngModel)]="form.password" required minlength="6" placeholder="Enter your password" />
-          </div>
-
-          <div class="container-login100-form-btn">
-            <button class="login100-form-btn" type="submit">Login</button>
-          </div>
-
-          <h4 class="text-center"><a class="txt2" routerLink="/forgot-password"><i class="fas fa-question-circle"></i> Forget Password?</a></h4>
-          <h4 class="text-center"><a class="txt2" routerLink="/register"><i class="fas fa-user-plus"></i> Register</a></h4>
         </div>
-      </form>
-
-      <div *ngIf="isLoggedIn" class="alert alert-success">
-        Logged in as {{ roles }}.
       </div>
     </div>
+    
 
-   
-  </div>
+
+    
+  
 </div>
-</body>

@@ -25,11 +25,9 @@ export class ResetPasswordComponent  {
   resetPassword(): void {
     this.passwordResetService.resetPassword(this.token, this.password).subscribe(
       (response) => {
-        // Gérer la réponse du backend, par exemple, afficher un message de réussite.
         console.log('Password reset successful', response);
       },
       (error) => {
-        // Gérer les erreurs, par exemple, afficher un message d'erreur.
         console.error('Password reset failed', error);
       }
     );

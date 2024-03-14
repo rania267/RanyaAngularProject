@@ -1,0 +1,63 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tasks List</h4>
+                </div>
+     
+                <div class="card-body">
+                  <!-- Search Input -->
+<div class="input-group mb-3 search-input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Search</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Type here to search" [(ngModel)]="searchText" (input)="filterTasks()">
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+
+                    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                    
+
+                        <!-- Schedule Name Column -->
+                        <ng-container matColumnDef="scheduleName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Schedule Name</th>
+                            <td mat-cell *matCellDef="let element">{{ element.scheduleName }}</td>
+                        </ng-container>
+
+                        <!-- Trigger Type Column -->
+                        <ng-container matColumnDef="triggerType">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Trigger Type</th>
+                            <td mat-cell *matCellDef="let element">{{ element.triggerType }}</td>
+                        </ng-container>
+
+                        <!-- Creation Date Column -->
+                        <ng-container matColumnDef="creationDate">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Creation Date</th>
+                            <td mat-cell *matCellDef="let element">{{ element.creationDate }}</td>
+                        </ng-container>
+
+                        <!-- End Scheduler Column -->
+                        <ng-container matColumnDef="endScheduler">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>End Scheduler</th>
+                            <td mat-cell *matCellDef="let element">{{ element.endScheduler }}</td>
+                        </ng-container>
+
+                        <!-- Add more columns as needed -->
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

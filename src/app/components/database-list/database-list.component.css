@@ -1,0 +1,97 @@
+table {
+    width: 100%;
+  }
+  .card-title {
+    font-size: 24px;
+  }
+  th{
+    color:#4e9998;
+  }
+  table {
+    width: 100%;
+  }
+  th{
+    color:#4e9998;
+  }
+  /* Add this to your component's CSS file or global styles */
+.search-input-group {
+    margin-bottom: 15px;
+    justify-content: flex-end;
+  }
+/* Style pour les cases à cocher personnalisées */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.verification-icon {
+  color: green;
+  border: 1px solid green;
+  border-radius: 50%;
+  padding: 5px; 
+  display: inline-block; 
+}
+
+
+  .form-control {
+    border-radius: 0;
+    max-width: 200px; /* Set a maximum width as needed */
+  }
+  
+  .input-group-append {
+    cursor: pointer;
+  }
+  
+  /* Optional: Style for focus state */
+  .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+  }
+  

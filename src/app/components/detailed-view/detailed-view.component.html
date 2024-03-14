@@ -1,0 +1,79 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Consultation</h4>
+        </div>
+        <h3 style="padding-left: 30px; color: rgb(70, 104, 154);">Detailed View</h3>
+        
+        <!-- Date Range Selection -->
+        <div class="row">
+          <div class="col-md-6">
+            <label for="startDate">Start Date</label>
+            <input type="text" id="startDate" placeholder="jj/mm/aaaa">
+          </div>
+          <div class="col-md-6">
+            <label for="endDate">End Date</label>
+            <input type="text" id="endDate" placeholder="jj/mm/aaaa">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12">
+            <label for="entries">Show entries</label>
+            <select id="entries">
+              <option value="5">5</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        </div>
+        
+        <!-- Table Section -->
+        <div class="card-body">
+          <table mat-table [dataSource]="consultationData" class="mat-elevation-z8">
+            <ng-container *ngIf="showConsultationColumns">
+              <!-- Define columns and rows for Consultation Data -->
+              <ng-container *ngFor="let column of consultationColumns" [matColumnDef]="column">
+                <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="consultationColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: consultationColumns;"></tr>
+            </ng-container>
+          </table>
+        </div>
+        
+        <!-- Pagination Section -->
+        <div class="row">
+          <div class="col-md-6">
+            <p>Showing 0 to 0 of 0 entries</p>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-info">Previous</button>
+            <button class="btn btn-info">Next</button>
+          </div>
+        </div>
+        
+        <!-- Additional Information -->
+        <div class="row">
+          <div class="col-md-12">
+            <p>No data available in table</p>
+          </div>
+        </div>
+        
+        <!-- Database Information -->
+        <div class="row">
+          <div class="col-md-6">
+            <p>Database 1</p>
+          </div>
+          <div class="col-md-6">
+            <p>Database 2</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

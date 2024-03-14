@@ -1,41 +1,27 @@
 import { Routes } from '@angular/router';
-import {OffreListComponent} from '../../offre/offre-list/offre-list.component';
-import {ListRequestComponent} from '../../Request/list-request/list-request.component';
-import { UpdateDeliveryComponent } from '../../update-delivery/update-delivery.component';
-import { UpdateContractComponent } from '../../update-contract/update-contract.component';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
+
+import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
+
 import { TypographyComponent } from '../../typography/typography.component';
-import { SurveryResultsComponent } from '../../survery-results/survery-results.component';
-import { ContractStatisticsComponent } from '../../contract-statistics/contract-statistics.component';
-import { ContractDetailsComponent } from '../../contract-details/contract-details.component';
+
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
-import { DeliveryDateComponent } from '../../delivery-date/delivery-date.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
+
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { ProductsComponent } from '../../products/products.component';
-import { CommandsComponent } from '../../commands/commands.component';
-import { RecieversComponent } from '../../recievers/recievers.component';
-import { UsersComponent } from '../../users/users.component';
-import { ContractComponent } from '../../contract/contract.component';
-import { AddDeliveryComponent } from '../../add-delivery/add-delivery.component';
-import { DeliveryComponent } from '../../delivery/delivery.component';
-import { AddContractComponent } from '../../add-contract/add-contract.component';
-import { DeliveryDetailsComponent } from '../../delivery-details/delivery-details.component';
-import { RequeteComponent } from '../../requete/requete.component';
-import { KpiComponent } from '../../kpi/kpi.component';
-import { AddKpiComponent } from '../../add-kpi/add-kpi.component';
-import { AddDatabaseComponent } from '../../add-database/add-database.component';
-import { DatabaseListComponent } from '../../database-list/database-list.component';
-import { LaunchScriptComponent } from '../../launch-script/launch-script.component';
-import { GlobalViewComponent } from '../../global-view/global-view.component';
-import { DetailedViewComponent } from '../../detailed-view/detailed-view.component';
-import { TasksListComponent } from '../../tasks-list/tasks-list.component';
+
+
+import { RequeteComponent } from '../../components/requete/requete.component';
+import { KpiComponent } from '../../components/kpi/kpi.component';
+import { AddKpiComponent } from '../../components/add-kpi/add-kpi.component';
+import { AddDatabaseComponent } from '../../components/add-database/add-database.component';
+import { DatabaseListComponent } from '../../components/database-list/database-list.component';
+import { LaunchScriptComponent } from '../../components/launch-script/launch-script.component';
+import { GlobalViewComponent } from '../../components/global-view/global-view.component';
+import { DetailedViewComponent } from '../../components/detailed-view/detailed-view.component';
+import { TasksListComponent } from '../../components/tasks-list/tasks-list.component';
 export const AdminLayoutRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'products',      component: ProductsComponent },
   { path: 'requete',      component: RequeteComponent },
   { path: 'kpi',      component: KpiComponent },
   { path: 'addKpi',      component: AddKpiComponent },
@@ -50,30 +36,14 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'tasksList',      component: TasksListComponent },
 
   { path: 'user-profile', component: UserProfileComponent },
-  { path: 'commands', component: CommandsComponent },
-  { path: 'recievers', component: RecieversComponent },
-  { path: 'users',   component: UsersComponent },
-    { path: 'table-list',     component: TableListComponent },
+
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'delivery',        component: DeliveryComponent },
+    { path: 'upgrade',        component: UpgradeComponent }
 
- { path: 'contract',        component: ContractComponent },
- { path: 'add-delivery',        component: AddDeliveryComponent },
- { path: 'add-contract',        component: AddContractComponent },
- { path: 'update-contract/:id',        component: UpdateContractComponent },
- {path: 'delivery-details/:id', component: DeliveryDetailsComponent},
- {path: 'contract-details/:id', component: ContractDetailsComponent},
- { path: 'update-delivery/:id', component: UpdateDeliveryComponent },
- { path: 'delivery-date', component: DeliveryDateComponent },
- { path: 'contract-statistics', component: ContractStatisticsComponent },
 
- { path: 'notifications',  component: NotificationsComponent },
- { path: 'offres',  component: OffreListComponent },
- { path: 'requests',  component: ListRequestComponent }
+
 ];
 
 

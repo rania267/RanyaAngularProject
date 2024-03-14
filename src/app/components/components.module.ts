@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { QueryModalComponentComponent } from './query-modal-component/query-modal-component.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    QueryModalComponentComponent
   ],
   exports: [
     FooterComponent,

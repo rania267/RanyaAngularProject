@@ -1,0 +1,190 @@
+
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Manage KPIs</h4>
+        </div>
+
+        <div class="step-indicator">
+          <div class="step-indicator-item" *ngFor="let step of steps; let i = index" [class.active]="currentStep === i + 1">
+            <div class="step-title">
+              {{ i + 1 === 1 ? 'Add KPI' : i + 1 === 2 ? 'First Query' : step }}
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center vh-40">
+
+            <form *ngIf="currentStep === 1" (ngSubmit)="addKpi()" class="m-4">
+
+              <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">KPI's Name: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="text" id="name" name="name" [(ngModel)]="newKpi.name_kpi" class="form-control" required>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <label for="subjectArea" class="col-sm-4 col-form-label">KPI's Subject Area: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="text" id="subjectArea" name="subjectArea" [(ngModel)]="newKpi.subject_area" class="form-control" required>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <label for="type" class="col-sm-4 col-form-label">Type: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="text" id="type" name="type" [(ngModel)]="newKpi.type" class="form-control" required>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <label for="seuil" class="col-sm-4 col-form-label">KPI Limit: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="number" id="seuil" name="seuil" [(ngModel)]="newKpi.seuil" class="form-control" required>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <label for="seuilGap" class="col-sm-4 col-form-label">Acceptance GAP Limit: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="number" id="seuilGap" name="seuilGap" [(ngModel)]="newKpi.seuil_gap" class="form-control" required>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <label for="seuilDataQuality" class="col-sm-4 col-form-label">Acceptance DataQuality Limit: <span class="required">*</span></label>
+                <div class="col-sm-8">
+                  <input type="number" id="seuilDataQuality" name="seuilDataQuality" [(ngModel)]="newKpi.seuil_dataQuality" class="form-control" required>
+                </div>
+              </div>
+        
+              <button type="submit" class="btn btn-primary">Add KPI</button>
+              <div class="row mt-4">
+
+              <div class="form-group">
+                <label for="mysqlDropdown" class="database-label">MySQL Databases:</label>
+                <select id="mysqlDropdown" class="form-control">
+                  <option *ngFor="let db of mysqlDatabases" [value]="db">{{ db }}</option>
+                </select>
+              </div>
+    
+              <div class="form-group">
+                <label for="oracleDropdown" class="database-label">Oracle Databases:</label>
+                <select id="oracleDropdown" class="form-control">
+                  <option *ngFor="let db of oracleDatabases" [value]="db">{{ db }}</option>
+                </select>
+              </div>
+    
+              <div class="form-group">
+                <label for="postgresDropdown" class="database-label">PostgreSQL Databases:</label>
+                <select id="postgresDropdown" class="form-control">
+                  <option *ngFor="let db of postgresDatabases" [value]="db">{{ db }}</option>
+                </select>
+              </div>
+              </div>
+            </form>
+            <form *ngIf="currentStep === 2" (ngSubmit)="onSubmitFirstQuery()" class="m-4">
+              <h3 style="color: rgb(70, 104, 154);">First Query</h3>
+            
+              <div class="form-group">
+                <label for="dimensions">Database *</label>
+                <input type="text" id="dimensions" name="dimensions" [(ngModel)]="queryForm.id_databasee.name" class="form-control" required>
+              </div>
+            
+              <div class="form-group row">
+                <label for="valKPI" class="col-sm-2 col-form-label">Val KPI *</label>
+                <div class="col-sm-4">
+                  <input type="text" id="valKPI" name="valKPI" [(ngModel)]="queryForm.val_kpi" class="form-control" required>
+                </div>
+                <label for="as" class="col-sm-2 col-form-label">As</label>
+                <div class="col-sm-4">
+                  <input type="text" id="as" name="as" [(ngModel)]="queryForm.val_kpi_alias" class="form-control">
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label for="body">Body *</label>
+                <input type="text" id="body" name="body" placeholder="From <selected database> where <condition>"  [(ngModel)]="queryForm.body" class="form-control" required>
+              </div>
+            
+              <div class="form-group">
+                <label for="dimensions">Dimensions *</label>
+              </div>
+            
+              <div class="form-group">
+                <label for="alias">Alias</label>
+                <input type="text" id="alias" name="alias" [(ngModel)]="queryForm.alias" class="form-control">
+              </div>
+            
+              <div class="button-container text-center mt-4">
+                <button type="button" (click)="seeQuery()" class="btn btn-primary">See Query</button>
+                <button type="button" class="btn btn-primary" (click)="showDateRangeDialog()">Execute Query </button>
+              </div>
+            </form>
+            
+            <form *ngIf="currentStep === 3" (ngSubmit)="onSubmitFirstQuery()" class="m-4">
+
+              <h3 style="color: rgb(70, 104, 154);">Second Query</h3>
+
+           
+              <div class="form-group">
+                <label for="dimensions">Database *</label>
+                <input type="text" id="dimensions" name="dimensions" [(ngModel)]="queryForm.dimensions" class="form-control" required>
+              </div>
+              <div class="form-group row">
+             
+              
+                <label for="dimensions" class="col-sm-2 col-form-label">Val KPI *</label>
+                <div class="col-sm-4">
+                  <input type="text" id="dimensions" name="dimensions" [(ngModel)]="queryForm.dimensions" class="form-control" required>
+                </div>
+                <label for="as" class="col-sm-2 col-form-label">As</label>
+                <div class="col-sm-4">
+                  <input type="text" id="as" name="as" [(ngModel)]="queryForm.as" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dimensions">Body *</label>
+                <input type="text" id="dimensions" name="dimensions" placeholder="From <selected database> where <condition>"  [(ngModel)]="queryForm.dimensions" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="dimensions">Dimensions *</label>
+              </div>
+
+              <div class="form-group">
+                <label for="alias">alias</label>
+                <input type="text" id="alias" name="alias" [(ngModel)]="queryForm.alias" class="form-control">
+              </div>
+
+            
+              <div class="button-container text-center mt-4">
+                <button type="button"   class="btn btn-primary">See Query</button>
+                <button type="button"  class="btn btn-primary">Execute Query</button>
+              </div>
+            </form>
+            <form *ngIf="currentStep === 4" (ngSubmit)="onSubmitFirstQuery()" class="m-4">
+
+              <h3 style="color: rgb(70, 104, 154);">Validation</h3>
+
+           
+            
+              <div class="button-container text-center mt-4">
+                <button type="button"   class="btn btn-primary">Add</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="button-container text-center mt-4">
+            <button type="button" (click)="previousStep()" [disabled]="currentStep === 1" class="btn btn-primary">Previous</button>
+            <button type="button" (click)="nextStep()" [disabled]="currentStep === steps.length" class="btn btn-primary">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
